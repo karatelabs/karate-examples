@@ -23,5 +23,5 @@ Use the [karate-template](https://github.com/karatelabs/karate-template) GitHub 
 # Integrations
 This repository also contains examples of how to use Karate and demonstrates integrations with 3rd party tools and frameworks.
 
-* [Sauce Labs](sauce-labs) - How to configure Karate to run tests on Sauce Labs
-* [Spring Boot](spring-boot) - Resources on testing Spring Boot applications with Karate
+* [Sauce Labs](sauce-labs/README.md) - How to configure Karate to run tests on Sauce Labs
+* [Spring Boot](spring-boot/README.md) - Resources on testing Spring Boot applications with Karate
