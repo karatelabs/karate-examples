@@ -1,7 +1,7 @@
 # Karate Examples
 
-## Karate Template
-Use the [karate-template](https://github.com/karatelabs/karate-template) GitHub project if you are looking for a quick-start "skeleton" to create a new Karate project.
+## GitHub Template
+* [karate-template](https://github.com/karatelabs/karate-template) - use this GitHub template if you are looking for a quick-start "skeleton" Karate project
 
 ## API Testing
 * [karate-demo](https://github.com/karatelabs/karate/tree/master/karate-demo) - This is not designed to be a stand-alone project, and is more of a regression test-suite for Karate itself. But it has a lot of examples of how to use Karate for API testing
