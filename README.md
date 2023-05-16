@@ -1,9 +1,5 @@
 # Karate Examples
 
-This repository contains examples of how to use Karate and demonstrates integrations with 3rd party tools and frameworks.
-
-Each folder should be usable as a stand-alone Karate project.
-
 ## Karate Template
 Use the [karate-template](https://github.com/karatelabs/karate-template) GitHub project if you are looking for a quick-start "skeleton" to create a new Karate project.
 
@@ -25,4 +21,7 @@ Use the [karate-template](https://github.com/karatelabs/karate-template) GitHub 
 * [examples/jobserver](https://github.com/karatelabs/karate/tree/master/examples/jobserver) - This Karate project includes some [web-browser tests](https://github.com/karatelabs/karate/tree/master/examples/jobserver/src/test/java/jobtest/web)
 
 # Integrations
-* [Sauce Labs](sauce-labs) - How to run tests on Sauce Labs 
+This repository also contains examples of how to use Karate and demonstrates integrations with 3rd party tools and frameworks.
+
+* [Sauce Labs](sauce-labs) - How to configure Karate to run tests on Sauce Labs
+* [Spring Boot](spring-boot) - Resources on testing Spring Boot applications with Karate
