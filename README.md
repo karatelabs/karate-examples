@@ -25,3 +25,4 @@ This repository also contains examples of how to use Karate and demonstrates int
 
 * [Sauce Labs](sauce-labs/README.md) - How to configure Karate to run tests on Sauce Labs
 * [Spring Boot](spring-boot/README.md) - Resources on testing Spring Boot applications with Karate
+* [gRPC](grpc/README.md) - How to test gRPC services with Karate
