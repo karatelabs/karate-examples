@@ -23,6 +23,11 @@
 # Integrations
 This repository also contains examples of how to use Karate and demonstrates integrations with 3rd party tools and frameworks.
 
+* [CLI / Bash](cli/README.md) - How to use Karate to test the command-line or use shell scripts
+* [gRPC](grpc/README.md) - How to test gRPC services with Karate
+* [Gatling](https://github.com/karatelabs/karate/tree/master/karate-gatling) - Karate can re-use API functional tests as performance tests !
+* [JUnit](https://github.com/karatelabs/karate#junit-5) - Karate has support for JUnit 5 although there is a [pure Java API](https://github.com/karatelabs/karate#parallel-execution) to run tests from any Java unit-testing framework such as TestNG
 * [Sauce Labs](sauce-labs/README.md) - How to configure Karate to run tests on Sauce Labs
 * [Spring Boot](spring-boot/README.md) - Resources on testing Spring Boot applications with Karate
-* [gRPC](grpc/README.md) - How to test gRPC services with Karate
+* [WebSockets](websockets/README.md) - Built-in support for WebSockets or you can use Java interop for very advanced scenarios
+* [Xray](https://docs.getxray.app/display/XRAYCLOUD/Testing+APIs+using+Karate+DSL) - Official documentation from the Xray team on how to integrate Karate
