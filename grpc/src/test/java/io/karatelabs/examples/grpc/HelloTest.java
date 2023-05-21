@@ -11,7 +11,7 @@ class HelloTest {
     static final Logger logger = LoggerFactory.getLogger(HelloTest.class);
  
     @Test
-    void testClientServer() throws Exception {
+    void testHello() throws Exception {
         Server server = HelloServer.start(0);
         HelloClient client = new HelloClient("localhost", server.getPort());
         String result = client.hello("world");

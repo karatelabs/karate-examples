@@ -23,10 +23,12 @@
 # Integrations
 This repository also contains examples of how to use Karate and demonstrates integrations with 3rd party tools and frameworks.
 
-* [Axe / Accesibility](axe/README.md) - Using a JS library to run checks on the DOM in a UI test is very easy
+* [Accessibility / Axe](axe/README.md) - Using a JS library to run checks on the DOM in a UI test is very easy
+* [ActiveMQ / Async](https://github.com/karatelabs/karate/tree/master/karate-netty#consumer-provider-example) - besides the [demo example](https://github.com/karatelabs/karate/tree/master/karate-demo/src/test/java/mock/contract), refer to [this diagram & example](https://twitter.com/getkarate/status/1417023536082812935) for generic async flows using Java interop
 * [CLI / Bash](cli/README.md) - How to use Karate to test the command-line or use shell scripts
 * [gRPC](grpc/README.md) - How to test gRPC services with Karate
 * [Gatling](https://github.com/karatelabs/karate/tree/master/karate-gatling) - Karate can re-use API functional tests as performance tests !
+* [Kafka](kafka/README.md) - Using the power of Karate Java interop to test Kafka and async flows
 * [JUnit](https://github.com/karatelabs/karate#junit-5) - There is also a [pure Java API](https://github.com/karatelabs/karate#parallel-execution) to run tests from any Java unit-testing framework such as TestNG
 * [Sauce Labs](sauce-labs/README.md) - How to configure Karate to run tests on Sauce Labs
 * [Spring Boot](spring-boot/README.md) - Resources on testing Spring Boot applications with Karate
