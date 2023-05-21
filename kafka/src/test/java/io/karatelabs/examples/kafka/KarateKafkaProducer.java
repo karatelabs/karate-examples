@@ -1,11 +1,9 @@
 package io.karatelabs.examples.kafka;
 
 import java.util.Properties;
-import java.util.concurrent.Future;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.kafka.clients.producer.RecordMetadata;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,13 +19,7 @@ public class KarateKafkaProducer {
 
     public void send(String topic, Object value) {
         ProducerRecord<String, Object> record = new ProducerRecord(topic, value);
-        Future<RecordMetadata> future = kafka.send(record);
-        try {
-            RecordMetadata rm = future.get();
-            logger.debug(">> kafka producer: {}", rm);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        kafka.send(record);
     }
 
     public void close() {
