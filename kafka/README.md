@@ -6,7 +6,7 @@ When you use well designed utility classes, your Karate tests will be clean and 
 
 For example if you look at [`kafka.feature`](src/test/java/karate/kafka.feature) the test is just one line. Behind the scenes a Kafka consumer and producer is initialized and the call is made. The HTML report even includes details of the call and the messages on the wire, which you can easily customize.
 
-Rather than attempt a generic and dynamic approach, this approach shown here can re-use your existing Kafaka implementation code-base and domain classes.
+Rather than attempt a generic and dynamic approach, this approach shown here can re-use your existing Kafka implementation code-base and domain classes.
 
 ## Running
 * Docker is required to start the Kafka broker and Zookeeper. There is a `docker-compose.yml` file in this project.
@@ -14,3 +14,6 @@ Rather than attempt a generic and dynamic approach, this approach shown here can
   * `docker-compose up -d`
   * `mvn test`
 * To stop the Docker containers run `docker-compose down`
+
+## Further Reading
+* [karate-kafka](https://github.com/Sdaas/karate-kafka) - a community project that provides a generic approach to testing Kafka with Karate
