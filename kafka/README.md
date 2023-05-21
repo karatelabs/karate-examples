@@ -4,7 +4,7 @@ This sample project demonstrates how you can test Kafka messaging if your implem
 
 When you use well designed utility classes, your Karate tests will be clean and only focus on making a call and what data is sent and received.
 
-For example if you look at [`kafka.feature`](src/test/java/karate/kafka.feature) the test is just one line. Behind the scenes a Kafka consumer and producer is initialized and the call is made. The HTML report even includes details of the call and the messages on the wire, which you can easily customize.
+For example if you look at [`kafka.feature`](src/test/java/karate/kafka.feature) the test is just a few lines. Behind the scenes a Kafka consumer and producer is initialized and the call is made. The HTML report even includes details of the call and the messages on the wire, which you can easily customize.
 
 Rather than attempt a generic and dynamic approach, this approach shown here can re-use your existing Kafka implementation code-base and domain classes.
 
