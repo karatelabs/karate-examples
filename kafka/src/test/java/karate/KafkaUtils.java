@@ -14,10 +14,8 @@ public class KafkaUtils {
 
     public KafkaUtils(String topic) {
         this.topic = topic;
-        consumer = new KarateKafkaConsumer();
-        consumer.subscribe(topic);
-        consumer.listen();
-        producer = new KarateKafkaProducer();
+        consumer = new KarateKafkaConsumer(topic);
+        producer = new KarateKafkaProducer(topic);
     }
     
     private static Logger logger() {
@@ -27,7 +25,7 @@ public class KafkaUtils {
 
     public void send(String message) {
         logger().debug(">> kafka send [{}] - {}", topic, message);      
-        producer.send(topic, message);
+        producer.send(message);
     }
 
     public List listen() {

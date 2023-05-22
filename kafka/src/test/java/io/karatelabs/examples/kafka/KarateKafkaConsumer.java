@@ -28,16 +28,14 @@ public class KarateKafkaConsumer {
 
     private final List messages = new ArrayList();
 
-    public KarateKafkaConsumer() {
+    public KarateKafkaConsumer(String topic) {
         kafka = new KafkaConsumer(config());
+        listen(topic);
     }
 
-    public void subscribe(String topic) {
+    private void listen(String topic) {
         kafka.subscribe(Collections.singletonList(topic));
-        logger.debug("kafka consumer subscibed to topic: {}", topic);
-    }
-
-    public void listen() {
+        logger.debug("kafka consumer subscibed to topic: {}", topic);        
         executor.submit(() -> {
             while (true) {
                 logger.debug("kafka consumer polling ...");

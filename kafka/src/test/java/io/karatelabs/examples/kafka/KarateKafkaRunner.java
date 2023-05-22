@@ -1,6 +1,8 @@
 package io.karatelabs.examples.kafka;
 
+import java.util.Arrays;
 import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,13 +13,14 @@ public class KarateKafkaRunner {
 
     @Test
     void testKafka() throws Exception {
-        KarateKafkaConsumer consumer = new KarateKafkaConsumer();
-        consumer.subscribe("test-topic");
-        consumer.listen();
-        KarateKafkaProducer producer = new KarateKafkaProducer();
-        producer.send("test-topic", "world");
+        String topic = "test-topic";
+        KarateKafkaConsumer consumer = new KarateKafkaConsumer(topic);
+        KarateKafkaProducer producer = new KarateKafkaProducer(topic);
+        producer.send("hello world");
         List messages = consumer.getMessages();
-        logger.debug("got messages: {}", messages);        
+        logger.debug("got messages: {}", messages);
+        assertEquals(Arrays.asList("hello world"), messages);
+        
     }
 
 }

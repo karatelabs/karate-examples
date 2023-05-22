@@ -1,4 +1,4 @@
 function fn() {
   var KafkaUtils = Java.type('karate.KafkaUtils');
-  return { Kafka: new KafkaUtils('test-topic') };
+  return { kafka: new KafkaUtils('test-topic') };
 }

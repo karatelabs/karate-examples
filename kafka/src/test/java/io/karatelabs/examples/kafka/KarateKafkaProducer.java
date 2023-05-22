@@ -11,13 +11,15 @@ public class KarateKafkaProducer {
     
     static final Logger logger = LoggerFactory.getLogger(KarateKafkaProducer.class);
 
+    private final String topic;
     private final KafkaProducer<String, Object> kafka;
 
-    public KarateKafkaProducer() {
+    public KarateKafkaProducer(String topic) {
+        this.topic = topic;
         kafka = new KafkaProducer(config());
     }
 
-    public void send(String topic, Object value) {
+    public void send(Object value) {
         ProducerRecord<String, Object> record = new ProducerRecord(topic, value);
         kafka.send(record);
     }
