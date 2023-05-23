@@ -24,9 +24,8 @@ Note that for a typical test-suite, you will set variables via the [`karate-conf
 
 ## Further Reading
 
-[Karate and Sauce Labs on Stack Overflow](https://stackoverflow.com/search?q=%5Bkarate%5D+sauce+labs)
-
-[Running UI Tests in parallel](https://stackoverflow.com/a/60387907/143475)
+* [Karate and Sauce Labs on Stack Overflow](https://stackoverflow.com/search?q=%5Bkarate%5D+sauce+labs)
+* [Running UI Tests in parallel](https://stackoverflow.com/a/60387907/143475)
 
 
 
