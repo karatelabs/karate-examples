@@ -8,3 +8,6 @@ For example if you look at [`grpc.feature`](src/test/java/karate/grpc.feature) t
 
 Rather than attempt a generic and dynamic approach, this approach shown here can re-use your existing gRPC implementation code-base and domain classes. If your gRPC implementation is in another language, you can still use this approach, but use Maven (or Gradle) to generate the Java code from the `.proto` files.
 
+## Further Reading
+
+* [karate-grpc](https://github.com/pecker-io/karate-grpc) - a community project that provides a generic approach to testing gRPC with Karate
