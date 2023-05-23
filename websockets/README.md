@@ -7,5 +7,6 @@ Karate has built-in support for [WebSockets](https://developer.mozilla.org/en-US
 * [websocket.feature](https://github.com/karatelabs/karate/blob/master/karate-demo/src/test/java/demo/websocket/websocket.feature)
 
 ## Further Reading
-[Karate and WebSockets on Stack Overflow](https://stackoverflow.com/search?q=%5Bkarate%5D+websocket)
-[Using a custom Java implementation if required](https://stackoverflow.com/a/69299321/143475)
+
+* [Karate and WebSockets on Stack Overflow](https://stackoverflow.com/search?q=%5Bkarate%5D+websocket)
+* [Using a custom Java implementation if required](https://stackoverflow.com/a/69299321/143475)
