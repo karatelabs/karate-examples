@@ -8,10 +8,11 @@ From your Sauce Labs dashboard, you can get the values you need from the quickst
 
 <img height="400" src="https://github.com/karatelabs/karate-examples/assets/915480/1a6634b6-797e-4a6c-ae39-3d5788f0f4cd">
 
+There may be differences such as needing the "username" and "accessKey" instead of the user details encoded in the URL.
+
 All you need to do in Karate is perform the [`configure driver` step](https://github.com/karatelabs/karate/tree/master/karate-core/#configure-driver) as per the documentation. Note how `sauce:options` are added to the WebDriver "capabilities":
 
 ```cucumber
-  * def sauceOptions = { build: '#(sauceLabsBuild)', name: '#(karate.feature.prefixedPath)' }
   * def session = { capabilities: { alwaysMatch: { browserName: 'chrome', browserVersion: 'latest', platformName: 'Windows 11', 'sauce:options': '#(sauceOptions)' } } }
   * configure driver = { type: 'chromedriver', start: false, webDriverSession: '#(session)', webDriverUrl: '#(sauceLabsUrl)' }
 ```
