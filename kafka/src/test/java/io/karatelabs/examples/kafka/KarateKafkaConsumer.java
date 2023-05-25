@@ -48,8 +48,9 @@ public class KarateKafkaConsumer {
                     listenFuture.complete(true);
                     break;
                 }
+                // assignment() can only be called after poll() has been called at least once
                 Set<TopicPartition> partitions = kafka.assignment();                
-                if (partitions.size() > 0) {
+                if (!partitions.isEmpty()) {
                     partitionFuture.complete(true);
                 }
             }
