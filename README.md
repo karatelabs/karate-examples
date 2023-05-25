@@ -30,6 +30,7 @@ This repository also contains examples of how to use Karate and demonstrates int
 * [Gatling](https://github.com/karatelabs/karate/tree/master/karate-gatling) - Karate can re-use API functional tests as performance tests !
 * [Kafka](kafka/README.md) - Using the power of Karate Java interop to test Kafka and async flows
 * [JUnit](https://github.com/karatelabs/karate#junit-5) - There is also a [pure Java API](https://github.com/karatelabs/karate#parallel-execution) to run tests from any Java unit-testing framework such as TestNG
+* [NPM](https://github.com/karatelabs/karate-npm) - there is an option to install Karate as a NPM package and use it from Node / JS
 * [Sauce Labs](sauce-labs/README.md) - How to configure Karate to run tests on Sauce Labs
 * [Spring Boot](spring-boot/README.md) - Resources on testing Spring Boot applications with Karate
 * [WebSockets](websockets/README.md) - Built-in support for WebSockets or you can use Java interop for very advanced scenarios
