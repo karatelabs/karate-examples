@@ -25,6 +25,7 @@ This repository also contains examples of how to use Karate and demonstrates int
 
 * [Accessibility / Axe](axe/README.md) - Using a JS library to run checks on the DOM in a UI test is very easy
 * [ActiveMQ / Async](https://github.com/karatelabs/karate/tree/master/karate-netty#consumer-provider-example) - besides the [demo example](https://github.com/karatelabs/karate/tree/master/karate-demo/src/test/java/mock/contract), refer to [this diagram & example](https://twitter.com/getkarate/status/1417023536082812935) for generic async flows using Java interop
+* [Broadcom / CA](https://techdocs.broadcom.com/us/en/ca-enterprise-software/devops/continuous-delivery-director-integrations/1-0/integrations-overview/plug-ins/karate-API-plug-in.html) - Broadcom Continuous Delivery Director has a plug-in for Karate integration
 * [CLI / Bash](cli/README.md) - How to use Karate to test the command-line or use shell scripts
 * [gRPC](grpc/README.md) - How to test gRPC services with Karate
 * [Gatling](https://github.com/karatelabs/karate/tree/master/karate-gatling) - Karate can re-use API functional tests as performance tests !
