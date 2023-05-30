@@ -1,5 +1,5 @@
 # Karate Examples
-* [karate-template](https://github.com/karatelabs/karate-template) - use this GitHub template if you are looking for a quick-start "skeleton" Karate project
+* [karate-template](https://github.com/karatelabs/karate-template) - use this GitHub template if you are looking for a quick-start "skeleton" Karate project for API testing
 * [karate-todo](https://github.com/karatelabs/karate-todo) - great for training or demo-ing all capabilities of Karate. It includes an app that has a working front-end UI and back-end API. Examples of API tests, API performance tests, API mocks and Web-Browser automation are included.
 
 
