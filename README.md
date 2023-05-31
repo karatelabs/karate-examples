@@ -32,6 +32,7 @@ This repository also contains examples of how to use Karate and demonstrates int
 * [Broadcom / CA](https://techdocs.broadcom.com/us/en/ca-enterprise-software/devops/continuous-delivery-director-integrations/1-0/integrations-overview/plug-ins/karate-API-plug-in.html) - Broadcom Continuous Delivery Director has a plug-in for Karate integration
 * [CLI / Bash](cli/README.md) - How to use Karate to test the command-line or use shell scripts
 * [Database](database/README.md) - Include SQL / database calls into functional (and even performance) test suites
+* [GitHub Codespaces](https://github.com/karatelabs/karate/wiki/Get-Started:-GitHub-Codespaces) - open a GitHub project directly in a browser and run and edit Karate tests
 * [gRPC](grpc/README.md) - How to test gRPC services with Karate
 * [Gatling](https://github.com/karatelabs/karate/tree/master/karate-gatling) - Karate can re-use API functional tests as performance tests !
 * [Kafka](kafka/README.md) - Using the power of Karate Java interop to test Kafka and async flows
