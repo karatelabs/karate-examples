@@ -7,6 +7,7 @@ This is a "standard" Spring Boot project. A few highlights:
   * for more options, refer to [this article at Baeldung](https://www.baeldung.com/spring-boot-running-port).
 * the Karate test is a "hybrid" test that calls the REST API as well as the database directly via JDBC
 * shows how [Java interop](https://github.com/karatelabs/karate#calling-java) can be used in [karate-config.js](src/test/java/karate-config.js) to configure as well as initialize the database connection
+  * note how the port number is dynamically passed to Karate from the Spring context in [`DogsTest.java`](src/test/java/karate/DogsTest.java)
 
 The Java "glue" code that connects to the database and is able to make SQL queries is in [`DbUtils.java`](src/test/java/karate/DbUtils.java). Note that this is just a starting point. You can use this code as a reference and implement what is appropriate for your project. 
 
