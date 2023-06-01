@@ -9,7 +9,7 @@ This is a "standard" Spring Boot project. A few highlights:
 * shows how [Java interop](https://github.com/karatelabs/karate#calling-java) can be used in [karate-config.js](src/test/java/karate-config.js) to configure as well as initialize the database connection
   * note how the port number is dynamically passed to Karate from the Spring context in [`DogsTest.java`](src/test/java/karate/DogsTest.java)
 
-The Java "glue" code that connects to the database and is able to make SQL queries is in [`DbUtils.java`](src/test/java/karate/DbUtils.java). Note that this is just a starting point. You can use this code as a reference and implement what is appropriate for your project. 
+The Java "glue" code that connects to the database and is able to make SQL queries is in [`DbUtils.java`](src/test/java/karate/DbUtils.java). Note that this is just a starting point. You can use this code as a reference and implement what is appropriate for your project. This example uses the [Spring JDBC template](https://spring.io/guides/gs/relational-data-access) that makes working with databases a lot easier in Java. You are free to use any Java code that gets the job done. Calling Java code from Karate is easy using [Java interop](https://github.com/karatelabs/karate#calling-java).
 
 Note that this code just needs to be created "one time". Once it is in place, no more Java code needs to be written (or compiled). Karate tests can be written by anyone in the team including non-programmers. And the tests will remain clean and focused on the business-scenario.
 
@@ -18,6 +18,7 @@ Run `mvn test` to execute the JUnit test: [`DogsTest.java`](src/test/java/karate
 
 ## Further Reading
 * [Karate and Databases on Stack Overflow](https://stackoverflow.com/search?q=%5Bkarate%5D+database)
+* [Karate and CLI](../cli/README.md) - teams have reported success with using Karate to call CLI commands that in turn call the database
 
 
 
