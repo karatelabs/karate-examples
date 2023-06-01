@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -30,16 +31,15 @@ public class KarateKafkaConsumer {
 
     public KarateKafkaConsumer(String topic) {
         kafka = new KafkaConsumer(config());
-        listen(topic);
+        listen(topic); // will block until partition is ready
     }
 
     private void listen(String topic) {
         kafka.subscribe(Collections.singletonList(topic));
-        logger.debug("kafka consumer subscibed to topic: {}", topic);        
+        logger.debug("kafka consumer subscibed to topic: {}", topic);
         executor.submit(() -> {
-            while (true) {
-                logger.debug("kafka consumer polling ...");
-                ConsumerRecords<String, Object> records = kafka.poll(Duration.ofMillis(500));
+            while (true) {                
+                ConsumerRecords<String, Object> records = kafka.poll(Duration.ofMillis(1000));
                 if (records != null && !records.isEmpty()) {
                     for (ConsumerRecord record : records) {
                         logger.debug("<< kafka consumer: {}", record);
@@ -49,19 +49,26 @@ public class KarateKafkaConsumer {
                     break;
                 }
                 // assignment() can only be called after poll() has been called at least once
-                Set<TopicPartition> partitions = kafka.assignment();                
-                if (!partitions.isEmpty()) {
+                Set<TopicPartition> partitions = kafka.assignment();
+                if (partitions.isEmpty()) {
+                    try {
+                        logger.debug("waiting for partition ...");
+                        Thread.sleep(1000);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                } else {
+                    logger.debug("partitions: {}", partitions);
                     partitionFuture.complete(true);
                 }
             }
         });
         try {
-            logger.debug("kafka consumer waiting for partition ...");
             partitionFuture.get();
             logger.debug("kafka consumer partition ready");
         } catch (Exception e) {
             throw new RuntimeException(e);
-        }        
+        }
     }
 
     public List getMessages() {
@@ -85,7 +92,8 @@ public class KarateKafkaConsumer {
         props.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:29092");
         props.setProperty(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer");
         props.setProperty(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer");
-        props.setProperty(ConsumerConfig.GROUP_ID_CONFIG, "karate-kafka-default-consumer-group");
+        // we use a random id to avoid keeoing track and having to seek to the beginning
+        props.setProperty(ConsumerConfig.GROUP_ID_CONFIG, UUID.randomUUID().toString());
         return props;
     }
 
