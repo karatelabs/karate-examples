@@ -24,6 +24,9 @@
 * [karate-todo](https://github.com/karatelabs/karate-todo) - includes a working UI and [UI tests](https://github.com/karatelabs/karate-todo/tree/main/src/test/java/app/ui), even "hybrid" tests that mix API and UI calls
 * [examples/jobserver](https://github.com/karatelabs/karate/tree/master/examples/jobserver) - This Karate project includes some [web-browser tests](https://github.com/karatelabs/karate/tree/master/examples/jobserver/src/test/java/jobtest/web)
 
+## Windows Desktop Automation
+* [Karate Robot Windows Install Guide](https://github.com/karatelabs/karate/wiki/Karate-Robot-Windows-Install-Guide) - get started testing a simple Windows application
+
 # Integrations
 This repository also contains examples of how to use Karate and demonstrates integrations with 3rd party tools and frameworks.
 
