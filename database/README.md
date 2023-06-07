@@ -1,6 +1,6 @@
 # Karate and Databases
 
-This is a "standard" Spring Boot project. A few highlights:
+This is a "standard" [Spring Boot](https://spring.io/projects/spring-boot) project. A few highlights:
 
 * shows how to run Karate via JUnit using the [`@SpringBootTest`](https://spring.io/guides/gs/testing-web) annotation
 * uses an `@Autowired` `ServletWebServerApplicationContext` to get the (dynamic) port that the Spring Boot application is running on
