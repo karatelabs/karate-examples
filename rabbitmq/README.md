@@ -17,4 +17,6 @@ For example if you look at [`rabbitmq.feature`](src/test/java/karate/rabbitmq.fe
 * https://x-team.com/blog/set-up-rabbitmq-with-docker-compose/
 * https://www.rabbitmq.com/download.html
 * [Kafka example](../kafka/README.md)
+* [ActiveMQ example](https://github.com/karatelabs/karate/tree/master/karate-netty#consumer-provider-example)
+* [Async and Mocks example](https://twitter.com/getkarate/status/1417023536082812935)
 
