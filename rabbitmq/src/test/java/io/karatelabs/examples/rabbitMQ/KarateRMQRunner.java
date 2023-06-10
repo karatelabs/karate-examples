@@ -7,17 +7,18 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class KarateRMQRunner {
+public class KarateRmqRunner {
 
-    static final Logger logger = LoggerFactory.getLogger(KarateRMQRunner.class);
+    static final Logger logger = LoggerFactory.getLogger(KarateRmqRunner.class);
 
     @Test
     void testRMQ() throws Exception {
-        KarateRMQConsumer consumer = new KarateRMQConsumer();
-        KarateRMQProducer producer = new KarateRMQProducer();
+        String queueName = "my-queue";
+        KarateRmqConsumer consumer = new KarateRmqConsumer(queueName);
+        KarateRmqProducer producer = new KarateRmqProducer(queueName);
         producer.putMessage("hello world");
         List messages = consumer.getMessageList();
-        logger.debug("Reading messages: {}", messages);
+        logger.debug("messages: {}", messages);
         assertEquals(Arrays.asList("hello world"), messages);
         
     }

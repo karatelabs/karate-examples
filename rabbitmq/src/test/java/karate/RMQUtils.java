@@ -2,34 +2,35 @@ package karate;
 
 import com.intuit.karate.Logger;
 import com.intuit.karate.core.ScenarioEngine;
-import io.karatelabs.examples.rabbitMQ.KarateRMQConsumer;
-import io.karatelabs.examples.rabbitMQ.KarateRMQProducer;
+import io.karatelabs.examples.rabbitMQ.KarateRmqConsumer;
+import io.karatelabs.examples.rabbitMQ.KarateRmqProducer;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeoutException;
 
-public class RMQUtils {
+public class RmqUtils {
 
-    private final KarateRMQConsumer consumer;
-    private final KarateRMQProducer producer;
+    private final KarateRmqConsumer consumer;
+    private final KarateRmqProducer producer;
 
-    public RMQUtils() throws IOException, TimeoutException {
-        consumer = new KarateRMQConsumer();
-        producer = new KarateRMQProducer();
+    public RmqUtils(String queueName) throws IOException, TimeoutException {
+        consumer = new KarateRmqConsumer(queueName);
+        producer = new KarateRmqProducer(queueName);
     }
-    
+
     private static Logger logger() {
         ScenarioEngine engine = ScenarioEngine.get();
         return engine.logger;
     }
 
     public void send(String message) throws IOException {
-        logger().debug(">> RMQ send - {}",message);
+        logger().debug(">> RMQ send - {}", message);
         producer.putMessage(message);
     }
 
     public List listen() throws IOException {
         return consumer.getMessageList();
     }
+
 }

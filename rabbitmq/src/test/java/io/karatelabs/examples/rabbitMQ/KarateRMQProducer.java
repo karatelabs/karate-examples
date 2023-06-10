@@ -9,33 +9,34 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
-public class KarateRMQProducer {
-    private static final Logger logger = LoggerFactory.getLogger(KarateRMQProducer.class);
-    public static String QUEUE_NAME = "MyQueue";
-    ConnectionFactory factory = new ConnectionFactory();
-    Connection connection;
-    static Channel channel;
+public class KarateRmqProducer {
 
-    {
+    private static final Logger logger = LoggerFactory.getLogger(KarateRmqProducer.class);
+
+    private final Channel channel;
+    private final String queueName;
+
+    public KarateRmqProducer(String queueName) {
+        this.queueName = queueName;
         try {
+            ConnectionFactory factory = new ConnectionFactory();
+            Connection connection;
             connection = factory.newConnection();
             factory.setUsername("guest");
             factory.setPassword("guest");
             factory.setHost("localhost");
             factory.setPort(5672);
             channel = connection.createChannel();
-            channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-            logger.info("Initialised RMQ");
+            channel.queueDeclare(queueName, false, false, false, null);
+            logger.debug("init producer");
         } catch (IOException | TimeoutException e) {
             throw new RuntimeException(e);
         }
     }
+
     public void putMessage(String msg) throws IOException {
-        channel.basicPublish("", QUEUE_NAME, null, msg.getBytes());
-        System.out.println(" [x] Sent '" + msg + "'");
+        channel.basicPublish("", queueName, null, msg.getBytes());
+        logger.debug("put message: '{}'", msg);
     }
 
-
 }
-
-
