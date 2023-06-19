@@ -1,6 +1,6 @@
 # Karate and Docker - Standalone JAR
 
-This simple minimalistic [`Dockerfile`](Dockerfile) is sufficient to package a Java Runtime Environment and the Karate [Standalone JAR](#standalone-jar).
+This simple minimalistic [`Dockerfile`](Dockerfile) is sufficient to package a Java Runtime Environment and the Karate [Standalone JAR](https://github.com/karatelabs/karate/wiki/Get-Started:-Other-Runtime-Options#standalone-jar).
 
 Here we are using an [`adoptopenjdk`](https://hub.docker.com/_/adoptopenjdk) Docker image as a base.
 
