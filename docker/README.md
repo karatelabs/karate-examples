@@ -22,6 +22,8 @@ Now to run a set of Karate tests in a `src` folder within the current directory 
  docker run -it --rm -v "$(pwd)/src":/src -w /src karate-jre java -jar /karate.jar .
 ```
 
+If you are on Windows, [refer to this](https://stackoverflow.com/a/41489151/143475) for equivalents of the `$(pwd)` etc.
+
 The explanation of the above command is as follows:
 
 * `-it` runs in interactive mode, and `--rm` removes the temporary image after use
