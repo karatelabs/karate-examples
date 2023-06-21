@@ -14,7 +14,11 @@ RUN  apt-get update \
 RUN wget -O karate.jar https://github.com/karatelabs/karate/releases/download/v1.4.0/karate-1.4.0.jar
 ```
 
-The Docker recipe is very simple, just download `karate.jar` into the root of the docker image.
+The Docker recipe is very simple, just download `karate.jar` into the root of the docker image. To build a docker image called `karate-jre` locally, you can do this: 
+
+```bash
+docker build -t karate-jre .
+```
 
 Now to run a set of Karate tests in a `src` folder within the current directory (outside the docker image) you can do this:
 
