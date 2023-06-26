@@ -5,7 +5,7 @@ Background:
   * def sauceLabsBuild = ''
   * def sauceLabsUser = ''
   * def sauceLabsKey = ''
-  * def sauceLabsUrl = ''
+  * def sauceLabsUrl = 'https://ondemand.eu-central-1.saucelabs.com:443/wd/hub'
   * def sauceOptions = { build: '#(sauceLabsBuild)', name: '#(karate.feature.prefixedPath)', username: '#(sauceLabsUser)', accessKey: '#(sauceLabsKey)' }
   * def session = { capabilities: { alwaysMatch: { browserName: 'chrome', browserVersion: 'latest', platformName: 'Windows 11', 'sauce:options': '#(sauceOptions)' } } }
   * configure driver = { type: 'chromedriver', start: false, webDriverSession: '#(session)', webDriverUrl: '#(sauceLabsUrl)' }

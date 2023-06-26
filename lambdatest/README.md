@@ -4,9 +4,7 @@ Karate supports the [W3C WebDriver protocol](https://www.w3.org/TR/webdriver) an
 
 The [example in this folder](lambdatest.feature) demonstrates how to run a test on Lambdatest using Karate. All you need is a Lambdatest account and values such as the URL, user, key etc.
 
-From your Lambdatest profile, you can get the values you need.
-
-There may be differences such as needing the "username" and "accessKey" instead of the user details encoded in the URL.
+From your Lambdatest profile, you can get the values you need. The main ones you need are the `username` and `accessKey`.
 
 All you need to do in Karate is perform the [`configure driver` step](https://github.com/karatelabs/karate/tree/master/karate-core/#configure-driver) as per the documentation. Note how `LT:Options` are added to the WebDriver "capabilities":
 

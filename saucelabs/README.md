@@ -4,11 +4,7 @@ Karate supports the [W3C WebDriver protocol](https://www.w3.org/TR/webdriver) an
 
 The [example in this folder](saucelabs.feature) demonstrates how to run a test on Sauce Labs using Karate. All you need is a Sauce Labs account and values such as the URL, user, key etc.
 
-From your Sauce Labs dashboard, you can get the values you need from the quickstart guide for Selenium / Java. Here is a screenshot showing which sections you can focus on:
-
-<img height="400" src="https://github.com/karatelabs/karate-examples/assets/915480/1a6634b6-797e-4a6c-ae39-3d5788f0f4cd">
-
-There may be differences such as needing the "username" and "accessKey" instead of the user details encoded in the URL.
+From your Sauce Labs dashboard, you can get the values you need from the quickstart guide for Selenium / Java. The main ones you need are the `username` and `accessKey`. Change the Sauce Labs URL if needed, based on which region you want to use.
 
 All you need to do in Karate is perform the [`configure driver` step](https://github.com/karatelabs/karate/tree/master/karate-core/#configure-driver) as per the documentation. Note how `sauce:options` are added to the WebDriver "capabilities":
 
