@@ -1,7 +1,7 @@
 Feature: sauce labs automation demo
 
 Background:
-  # enter the values for the next 2 lines from your sauce labs account
+  # enter the values for the next few lines from your sauce labs account
   * def sauceLabsBuild = ''
   * def sauceLabsUser = ''
   * def sauceLabsKey = ''

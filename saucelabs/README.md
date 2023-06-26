@@ -1,8 +1,8 @@
 # Karate and Sauce Labs
 
-Karate supports the [W3C WebDriver protocol](https://www.w3.org/TR/webdriver) and can be used to run tests on Sauce Labs.
+Karate supports the [W3C WebDriver protocol](https://www.w3.org/TR/webdriver) and can be used to run tests on [Sauce Labs](https://saucelabs.com).
 
-The [example in this folder](sauce-labs.feature) demonstrates how to run a test on Sauce Labs using Karate. All you need is a Sauce Labs account and the values of the Sauce Labs "build" and the URL to connect to.
+The [example in this folder](saucelabs.feature) demonstrates how to run a test on Sauce Labs using Karate. All you need is a Sauce Labs account and values such as the URL, user, key etc.
 
 From your Sauce Labs dashboard, you can get the values you need from the quickstart guide for Selenium / Java. Here is a screenshot showing which sections you can focus on:
 
