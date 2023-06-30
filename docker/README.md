@@ -40,6 +40,12 @@ All the possible Karate command-line options are explained here: [Usage](https:/
 
 You can easily customize the above recipe, for example you could bundle your tests within the docker image. One nice thing about the above example is that the test reports are created outside the image, so you can view them even after the docker process stops.
 
+## Adding JARs to the classpath
+
+This [Dockerfile](https://github.com/karatelabs/karate-todo/blob/main/cfg/Dockerfile-app) which is part of the [karate-todo](https://github.com/karatelabs/karate-todo) example shows how you can add JAR files to the classpath (from a Maven build), and run a java command when the container starts. This pattern is useful if you want to "ship" a Docker image that embeds a [Karate mock](https://karatelabs.github.io/karate/karate-netty).
+
+You can also `ADD` feature files to the Docker image and run tests when the container starts. In this case, mounting a `/target` directory may be needed to see reports.
+
 ## Further Reading
 
 * [Get Started - Other Runtime Options](https://github.com/karatelabs/karate/wiki/Get-Started:-Other-Runtime-Options#docker)
