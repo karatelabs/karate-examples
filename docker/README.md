@@ -1,5 +1,6 @@
-# Karate and Docker - Standalone JAR
+# Karate and Docker
 
+## Standalone JAR
 This simple minimalistic [`Dockerfile`](Dockerfile) is sufficient to package a Java Runtime Environment and the Karate [Standalone JAR](https://github.com/karatelabs/karate/wiki/Get-Started:-Other-Runtime-Options#standalone-jar).
 
 Here we are using an [`adoptopenjdk`](https://hub.docker.com/_/adoptopenjdk) Docker image as a base.
@@ -45,6 +46,32 @@ You can easily customize the above recipe, for example you could bundle your tes
 This [Dockerfile](https://github.com/karatelabs/karate-todo/blob/main/cfg/Dockerfile-app) which is part of the [karate-todo](https://github.com/karatelabs/karate-todo) example shows how you can add JAR files to the classpath (from a Maven build), and run a java command when the container starts. This pattern is useful if you want to "ship" a Docker image that embeds a [Karate mock](https://karatelabs.github.io/karate/karate-netty).
 
 You can also `ADD` feature files to the Docker image and run tests when the container starts. In this case, mounting a `/target` directory may be needed to see reports.
+
+## Using Maven
+
+Using the [maven:3-jdk-11](https://hub.docker.com/layers/library/maven/3-jdk-11/images/sha256-37a94a4fe3b52627748d66c095d013a17d67478bc0594236eca55c8aef33ddaa) image may be sufficient for most use-cases. For example:
+
+```bash
+docker run -it --rm -v "$(pwd)":/src -w /src -v "$HOME/.m2":/root/.m2 maven:3-jdk-11 mvn test
+```
+
+Here we use `-v "$HOME/.m2":/root/.m2` to mount and re-use your local Maven JAR download "cache" (which saves time), but you can omit it if needed for a true "from scratch" experience.
+
+## Using Maven and the Standalone JAR
+
+This super-simple [Dockerfile](Dockerfile-mvn) is useful for creating a Docker image that can be used as a "worker node" for [distributed testing](https://github.com/karatelabs/karate/wiki/Distributed-Testing) of a Maven project, where you don't need web-browser automtion or Chrome installed.
+
+If using this folder, you can build it like so:
+
+```bash
+docker build -t karate-mvn -f Dockerfile-mvn .
+```
+
+Now you can start a "worker node" like this:
+
+```bash
+docker run -it --rm karate-mvn java -jar karate.jar -j http://host.docker.internal:8090
+```
 
 ## Further Reading
 

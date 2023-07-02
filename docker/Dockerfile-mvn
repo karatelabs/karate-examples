@@ -1,0 +1,3 @@
+FROM maven:3-jdk-11
+
+RUN wget -O karate.jar https://github.com/karatelabs/karate/releases/download/v1.4.0/karate-1.4.0.jar
