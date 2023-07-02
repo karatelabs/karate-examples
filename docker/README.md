@@ -59,7 +59,7 @@ Here we use `-v "$HOME/.m2":/root/.m2` to mount and re-use your local Maven JAR 
 
 ## Using Maven and the Standalone JAR
 
-This super-simple [Dockerfile](Dockerfile-mvn) is useful for creating a Docker image that can be used as a "worker node" for [distributed testing](https://github.com/karatelabs/karate/wiki/Distributed-Testing) of a Maven project, where you don't need web-browser automtion or Chrome installed.
+This super-simple [Dockerfile](Dockerfile-mvn) is useful for creating a Docker image that can be used as a "worker node" for [distributed testing](https://github.com/karatelabs/karate/wiki/Distributed-Testing) of a Maven project, where you don't need web-browser automation or Chrome installed.
 
 If using this folder, you can build it like so:
 
@@ -72,6 +72,8 @@ Now you can start a "worker node" like this:
 ```bash
 docker run -it --rm karate-mvn java -jar karate.jar -j http://host.docker.internal:8090
 ```
+
+Where the `-j` option is the URL of the "job manager" node that will distribute tests across worker nodes. An example of a job manager for a distributed performance test can be found here: [TodoPerfJobConfig.java](https://github.com/karatelabs/karate-todo/blob/main/src/test/java/app/perf/job/TodoPerfJobConfig.java) - and the `main()` method will start the server.
 
 ## Further Reading
 
