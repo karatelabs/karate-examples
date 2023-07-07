@@ -18,7 +18,9 @@ Run `mvn test` to execute the JUnit test: [`DogsTest.java`](src/test/java/karate
 
 ## Further Reading
 * [Karate and Databases on Stack Overflow](https://stackoverflow.com/search?q=%5Bkarate%5D+database)
-* [Karate and CLI](../cli/README.md) - teams have reported success with using Karate to call CLI commands that in turn call the database
+* [Karate and CLI](../cli/README.md) - teams have reported success with using Karate to call CLI commands that in turn call the 
+database
+* [Karate and Spring Boot](../spring-boot/README.md)
 
 
 
