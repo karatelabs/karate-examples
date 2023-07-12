@@ -19,7 +19,6 @@
         <release.version>11</release.version>
         <micronaut.version>3.9.4</micronaut.version>
         <micronaut.runtime>netty</micronaut.runtime>
-        <exec.mainClass>example.micronaut.Application</exec.mainClass>
         <karate.version>1.4.0</karate.version>
         <karate.graal.version>22.0.0.2</karate.graal.version>
     </properties>
