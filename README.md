@@ -43,6 +43,7 @@ This repository also contains examples of how to use Karate and demonstrates int
 * [JUnit](https://github.com/karatelabs/karate#junit-5) - There is also a [pure Java API](https://github.com/karatelabs/karate#parallel-execution) to run tests from any Java unit-testing framework such as TestNG
 * [Kafka](kafka/README.md) - Using the power of Karate Java interop to test Kafka and async flows
 * [Lambdatest](lambdatest/README.md) - How to configure Karate to run tests on Lambdatest
+* [Micronaut](micronaut/README.md) - Karate is great for testing Micronaut applications
 * [NPM](https://github.com/karatelabs/karate-npm) - there is an option to install Karate as a NPM package and use it from Node / JS
 * [Quarkus](quarkus/README.md) - Karate is a good fit for integration testing Quarkus applications
 * [RabbitMQ](rabbitmq/README.md) - Using Java to send and receive messages with RabbitMQ

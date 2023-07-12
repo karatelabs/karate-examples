@@ -17,7 +17,7 @@
     <logger name="com.intuit.karate" level="DEBUG"/>
     <logger name="io.karatelabs" level="DEBUG"/>
     <logger name="karate" level="DEBUG"/>
-    <logger name="org.thymeleaf" level="ERROR"/>
+    <logger name="karate.org" level="WARN"/>
    
     <root level="warn">
         <appender-ref ref="STDOUT" />
