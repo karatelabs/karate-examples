@@ -25,3 +25,14 @@ services:
       KAFKA_OFFSETS_TOPIC_NUM_PARTITIONS: 1
       KAFKA_MIN_INSYNC_REPLICAS: 1
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      
+  schema-registry:
+    image: confluentinc/cp-schema-registry:latest
+    depends_on:
+      - zookeeper
+      - kafka
+    ports: 
+      - 8081:8081
+    environment: 
+      SCHEMA_REGISTRY_HOST_NAME: localhost
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: PLAINTEXT://kafka:9092 

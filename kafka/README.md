@@ -8,6 +8,8 @@ For example if you look at [`kafka.feature`](src/test/java/karate/kafka.feature)
 
 Rather than attempt a generic and dynamic approach, this approach shown here can re-use your existing Kafka implementation code-base and domain classes.
 
+This example also shows how to handle Avro for both serializing and deserializing of messages.
+
 ## Running
 * Docker is required to start the Kafka broker and Zookeeper. There is a `docker-compose.yml` file in this project.
 * Run the following commands

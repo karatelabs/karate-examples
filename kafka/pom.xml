@@ -20,7 +20,14 @@
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka-clients</artifactId>
             <version>3.3.1</version>
+            <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-avro-serializer</artifactId>
+            <version>7.4.0</version>
+            <scope>test</scope>
+        </dependency>    
         <dependency>
             <groupId>com.intuit.karate</groupId>
             <artifactId>karate-junit5</artifactId>
@@ -58,6 +65,13 @@
                 </configuration>
             </plugin>                    
         </plugins>        
-    </build>       
+    </build> 
+    
+    <repositories>
+        <repository>
+            <id>confluent</id>
+            <url>https://packages.confluent.io/maven</url>
+        </repository>
+    </repositories>                
     
 </project>

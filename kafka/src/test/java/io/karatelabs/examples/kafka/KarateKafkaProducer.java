@@ -1,9 +1,13 @@
 package io.karatelabs.examples.kafka;
 
+import io.confluent.kafka.serializers.KafkaAvroSerializer;
+import io.confluent.kafka.serializers.KafkaAvroSerializerConfig;
 import java.util.Properties;
+import org.apache.avro.generic.GenericRecord;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,7 +16,7 @@ public class KarateKafkaProducer {
     static final Logger logger = LoggerFactory.getLogger(KarateKafkaProducer.class);
 
     private final String topic;
-    private final KafkaProducer<String, Object> kafka;
+    private final KafkaProducer<String, GenericRecord> kafka;
 
     public KarateKafkaProducer(String topic) {
         this.topic = topic;
@@ -20,7 +24,7 @@ public class KarateKafkaProducer {
     }
 
     public void send(Object value) {
-        ProducerRecord<String, Object> record = new ProducerRecord(topic, value);
+        ProducerRecord<String, GenericRecord> record = new ProducerRecord(topic, value);
         kafka.send(record);
     }
 
@@ -31,17 +35,19 @@ public class KarateKafkaProducer {
     public static Properties config() {
         // refer https://kafka.apache.org/documentation/#producerconfigs
         Properties props = new Properties();
-        props.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:29092");
-        props.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
-        props.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:29092");
+        props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class);
+        props.put(KafkaAvroSerializerConfig.SCHEMA_REGISTRY_URL_CONFIG, "http://localhost:8081");
+
         // create a safe producer
-        props.setProperty(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, "true");
-        props.setProperty(ProducerConfig.ACKS_CONFIG, "all");
-        props.setProperty(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, "5");
+        props.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, "true");
+        props.put(ProducerConfig.ACKS_CONFIG, "all");
+        props.put(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, "5");
         // high throughput producer
-        props.setProperty(ProducerConfig.COMPRESSION_TYPE_CONFIG, "snappy");
-        props.setProperty(ProducerConfig.LINGER_MS_CONFIG, "20"); // linger for 20ms
-        props.setProperty(ProducerConfig.BATCH_SIZE_CONFIG, Integer.toString(32 * 1024)); // 32 kb
+        props.put(ProducerConfig.COMPRESSION_TYPE_CONFIG, "snappy");
+        props.put(ProducerConfig.LINGER_MS_CONFIG, "20"); // linger for 20ms
+        props.put(ProducerConfig.BATCH_SIZE_CONFIG, Integer.toString(32 * 1024)); // 32 kb
         return props;
     }
 
