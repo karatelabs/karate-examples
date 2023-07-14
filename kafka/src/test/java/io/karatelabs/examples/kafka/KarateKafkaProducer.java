@@ -1,8 +1,12 @@
 package io.karatelabs.examples.kafka;
 
+import com.intuit.karate.FileUtils;
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import io.confluent.kafka.serializers.KafkaAvroSerializerConfig;
+import java.io.File;
 import java.util.Properties;
+import org.apache.avro.Schema;
+import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -17,15 +21,21 @@ public class KarateKafkaProducer {
 
     private final String topic;
     private final KafkaProducer<String, GenericRecord> kafka;
+    private final Schema helloSchema;
 
     public KarateKafkaProducer(String topic) {
         this.topic = topic;
         kafka = new KafkaProducer(config());
+        Schema.Parser parser = new Schema.Parser();
+        String schemaText = FileUtils.toString(new File("src/test/java/karate/hello.avsc"));
+        helloSchema = parser.parse(schemaText);        
     }
 
-    public void send(Object value) {
-        ProducerRecord<String, GenericRecord> record = new ProducerRecord(topic, value);
-        kafka.send(record);
+    public void send(String message) {
+        GenericRecord record = new GenericData.Record(helloSchema);
+        record.put("message", message);
+        ProducerRecord pr = new ProducerRecord(topic, null, record);
+        kafka.send(pr);
     }
 
     public void close() {
@@ -49,6 +59,6 @@ public class KarateKafkaProducer {
         props.put(ProducerConfig.LINGER_MS_CONFIG, "20"); // linger for 20ms
         props.put(ProducerConfig.BATCH_SIZE_CONFIG, Integer.toString(32 * 1024)); // 32 kb
         return props;
-    }
+    }   
 
 }

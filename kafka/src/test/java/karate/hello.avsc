@@ -1,0 +1,8 @@
+{
+    "type": "record",
+    "name": "Hello",
+    "namespace": "io.karatelabs.examples",
+    "fields": [
+	{"name": "message", "type":"string"}
+    ]
+}
