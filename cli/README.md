@@ -11,3 +11,4 @@ The best documentation is present in [this answer on Stack Overflow](https://sta
 ## Further Reading
 
 [Using cURL to simulate non-standard HTTP request](https://stackoverflow.com/a/64352676/143475)
+[Karate and SSH](../ssh/README.md)
