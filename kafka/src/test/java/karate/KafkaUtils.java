@@ -23,9 +23,9 @@ public class KafkaUtils {
         return engine.logger;
     }
 
-    public void send(String message) {
-        logger().debug(">> kafka send [{}] - {}", topic, message);
-        producer.send(message);
+    public void send(Object data) {
+        logger().debug(">> kafka send [{}]", topic);
+        producer.send(data);
     }
 
     public List listen() {

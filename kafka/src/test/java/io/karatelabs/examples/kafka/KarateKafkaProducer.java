@@ -1,12 +1,10 @@
 package io.karatelabs.examples.kafka;
 
-import com.intuit.karate.FileUtils;
+import com.intuit.karate.Json;
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import io.confluent.kafka.serializers.KafkaAvroSerializerConfig;
-import java.io.File;
 import java.util.Properties;
 import org.apache.avro.Schema;
-import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -26,14 +24,12 @@ public class KarateKafkaProducer {
     public KarateKafkaProducer(String topic) {
         this.topic = topic;
         kafka = new KafkaProducer(config());
-        Schema.Parser parser = new Schema.Parser();
-        String schemaText = FileUtils.toString(new File("src/test/java/karate/hello.avsc"));
-        helloSchema = parser.parse(schemaText);        
+        helloSchema = AvroUtils.toSchema("src/test/java/karate/hello.avsc");
     }
 
-    public void send(String message) {
-        GenericRecord record = new GenericData.Record(helloSchema);
-        record.put("message", message);
+    public void send(Object object) {
+        String json = Json.of(object).toString();
+        GenericRecord record = AvroUtils.fromJson(helloSchema, json);
         ProducerRecord pr = new ProducerRecord(topic, null, record);
         kafka.send(pr);
     }

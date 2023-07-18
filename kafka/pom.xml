@@ -27,7 +27,7 @@
             <artifactId>kafka-avro-serializer</artifactId>
             <version>7.4.0</version>
             <scope>test</scope>
-        </dependency>    
+        </dependency>           
         <dependency>
             <groupId>com.intuit.karate</groupId>
             <artifactId>karate-junit5</artifactId>

@@ -3,6 +3,6 @@ Feature: example of using helper classes so that your karate tests
     look at karate-config.js for how "kafka" was initialized
 
 Scenario:
-* kafka.send('hello world')
+* kafka.send({message: 'hello world'})
 * def result = kafka.listen()
-* match result == ['hello world']
+* match result == [{message: 'hello world'}]

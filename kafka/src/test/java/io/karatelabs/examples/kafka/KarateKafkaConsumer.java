@@ -1,5 +1,6 @@
 package io.karatelabs.examples.kafka;
 
+import com.intuit.karate.Json;
 import io.confluent.kafka.serializers.KafkaAvroDeserializer;
 import io.confluent.kafka.serializers.KafkaAvroSerializerConfig;
 import java.time.Duration;
@@ -31,7 +32,7 @@ public class KarateKafkaConsumer {
     private final CompletableFuture<Boolean> listenFuture = new CompletableFuture();
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
 
-    private final List<String> messages = new ArrayList();
+    private final List messages = new ArrayList();
 
     public KarateKafkaConsumer(String topic) {
         kafka = new KafkaConsumer(config());
@@ -42,14 +43,13 @@ public class KarateKafkaConsumer {
         kafka.subscribe(Collections.singletonList(topic));
         logger.debug("kafka consumer subscibed to topic: {}", topic);
         executor.submit(() -> {
-            while (true) {                
+            while (true) {
                 ConsumerRecords<String, GenericRecord> records = kafka.poll(Duration.ofMillis(1000));
                 if (records != null && !records.isEmpty()) {
                     for (ConsumerRecord<String, GenericRecord> record : records) {
                         logger.debug("<< kafka consumer: {}", record);
-                        // type may be org.apache.avro.util.Utf8 and not String                        
-                        Object message = record.value().get("message");
-                        messages.add(message + "");
+                        String json = AvroUtils.toJson(record.value());
+                        messages.add(Json.of(json).value());
                     }
                     listenFuture.complete(true);
                     break;
