@@ -10,5 +10,7 @@ Most of the work is handled by [`SshSession.java`](src/test/java/karate/SshSessi
 
 If you need more functionality, you can use the Karate core [Command](https://github.com/karatelabs/karate/blob/master/karate-core/src/main/java/com/intuit/karate/shell/Command.java) and [Console](https://github.com/karatelabs/karate/blob/master/karate-core/src/main/java/com/intuit/karate/shell/Console.java) classes as a reference to run a background thread, collect server output and make it available to the Karate / calling script.
 
+Please do consider improving this example and contributing code back to this project !
+
 ## Further Reading
 [Karate and CLI / Bash](../cli/README.md)
