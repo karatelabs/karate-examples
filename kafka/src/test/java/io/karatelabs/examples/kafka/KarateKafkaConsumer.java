@@ -47,7 +47,7 @@ public class KarateKafkaConsumer {
                 ConsumerRecords<String, GenericRecord> records = kafka.poll(Duration.ofMillis(1000));
                 if (records != null && !records.isEmpty()) {
                     for (ConsumerRecord<String, GenericRecord> record : records) {
-                        logger.debug("<< kafka consumer: {}", record);
+                        logger.debug("<< kafka offet: {}, key: {}, value: {}", record.offset(), record.key(), record.value());
                         String json = AvroUtils.toJson(record.value());
                         messages.add(Json.of(json).value());
                     }
