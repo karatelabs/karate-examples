@@ -8,7 +8,7 @@ Here we are using an [`adoptopenjdk`](https://hub.docker.com/_/adoptopenjdk) Doc
 ```docker
 FROM adoptopenjdk:11-jre-hotspot
 
-RUN curl https://github.com/karatelabs/karate/releases/download/v1.4.0/karate-1.4.0.jar -o karate.jar
+RUN curl -L -o karate.jar https://github.com/karatelabs/karate/releases/download/v1.4.0/karate-1.4.0.jar
 ```
 
 The Docker recipe is very simple, just download `karate.jar` into the root of the docker image. To build a docker image called `karate-jre` locally, you can do this: 
