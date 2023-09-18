@@ -49,6 +49,7 @@ This repository also contains examples of how to use Karate and demonstrates int
 * [Quarkus](quarkus/README.md) - Karate is a good fit for integration testing Quarkus applications
 * [RabbitMQ](rabbitmq/README.md) - Using Java to send and receive messages with RabbitMQ
 * [Sauce Labs](saucelabs/README.md) - How to configure Karate to run tests on Sauce Labs
+* [Slack](slack/README.md) - Refer to blog posts and sample code from the community
 * [Spring Boot](spring-boot/README.md) - Resources on testing Spring Boot applications with Karate
 * [SSH](ssh/README.md) - how to open an SSH connection and invoke server commands using Karate
 * [WebSockets](websockets/README.md) - Built-in support for WebSockets or you can use Java interop for very advanced scenarios
