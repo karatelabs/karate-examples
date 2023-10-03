@@ -1,0 +1,28 @@
+{
+  "type": "record",
+  "name": "Hello",
+  "namespace": "io.karatelabs.examples",
+  "fields": [
+    {
+      "name": "message",
+      "type": "string"
+    },
+    {
+      "name": "info",
+      "type": {
+        "name": "Info",
+        "type": "record",
+        "fields": [
+          {
+            "name": "first",
+            "type": "long"
+          },
+          {
+            "name": "second",
+            "type": "boolean"
+          }
+        ]
+      }
+    }
+  ]
+}

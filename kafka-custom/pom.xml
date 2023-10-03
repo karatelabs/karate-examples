@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
  
     <groupId>io.karatelabs.examples</groupId>
-    <artifactId>karate-kafka-example</artifactId>
+    <artifactId>karate-kafka</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
  
@@ -11,25 +11,32 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>11</java.version>
         <maven.compiler.version>3.11.0</maven.compiler.version>
-        <maven.surefire.version>3.0.0</maven.surefire.version>
+        <maven.surefire.version>3.0.0</maven.surefire.version>        
+        <karate.version>1.4.0</karate.version>
     </properties>    
 
-    <dependencies>         
+    <dependencies>
         <dependency>
-            <groupId>io.karatelabs</groupId>
-            <artifactId>karate-kafka</artifactId>
-            <version>0.1.3</version>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>3.3.1</version>
             <scope>test</scope>
-        </dependency>               
+        </dependency>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.6.2</version>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-streams-avro-serde</artifactId>
+            <version>7.4.1</version>
             <scope>test</scope>
-        </dependency>       		
+        </dependency>          
+        <dependency>
+            <groupId>com.intuit.karate</groupId>
+            <artifactId>karate-junit5</artifactId>
+            <version>${karate.version}</version>
+            <scope>test</scope>
+        </dependency>		
     </dependencies>
 
-    <build>
+    <build>       
         <testResources>
             <testResource>
                 <directory>src/test/java</directory>
@@ -37,7 +44,7 @@
                     <exclude>**/*.java</exclude>
                 </excludes>
             </testResource>
-        </testResources>
+        </testResources>       
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -56,8 +63,15 @@
                 <configuration>
                     <argLine>-Dfile.encoding=UTF-8</argLine>
                 </configuration>
-            </plugin>          
+            </plugin>                    
         </plugins>        
-    </build>                
+    </build> 
+    
+    <repositories>
+        <repository>
+            <id>confluent</id>
+            <url>https://packages.confluent.io/maven</url>
+        </repository>
+    </repositories>                
     
 </project>

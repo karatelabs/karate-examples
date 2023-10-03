@@ -1,8 +1,43 @@
-Feature: example of using helper classes so that your karate tests
-    can focus only on the calls, requests and responses
-    look at karate-config.js for how "kafka" was initialized
+Feature: karate-kafka demo
+
+Background:
+* configure kafka =
+"""
+{ 
+  'bootstrap.servers': '127.0.0.1:29092',
+  'schema.registry.url': 'http://localhost:8081'
+}
+"""
+
+* register { name: 'hello', path: 'classpath:karate/hello.avsc' }
 
 Scenario:
-* kafka.send({ message: 'hello', info: { first: 5, second: true } })
-* def result = kafka.listen()
-* match result == [{ message: 'hello', info: { first: 5, second: true } }]
+* def session = karate.consume('kafka')
+* session.topic = 'test-topic'
+* session.count = 2
+* session.filter = x => x.key != 'zero'
+* session.start()
+
+* topic 'test-topic'
+* schema 'hello'
+* key 'zero'
+* value { message: 'hello0', info: { first: 0, second: false } }
+* produce kafka
+
+* topic 'test-topic'
+* schema 'hello'
+* headers { foo: 'bar1', baz: 'ban1' }
+* key 'first'
+* value { message: 'hello1', info: { first: 1, second: true } }
+* produce kafka
+
+* topic 'test-topic'
+* schema 'hello'
+* key 'second'
+* value { message: 'hello2', info: { first: 2, second: false } }
+* produce kafka
+
+* def response = session.collect()
+* match response[0].key == 'first'
+* match response[0].headers == { foo: 'bar1', baz: 'ban1' }
+* match response[1].value == { message: 'hello2', info: { first: 2, second: false } }

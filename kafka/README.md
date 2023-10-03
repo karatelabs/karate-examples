@@ -1,14 +1,10 @@
-# Karate and Kafka
+# Karate Kafka
 
-This sample project demonstrates how you can test Kafka messaging if your implementation is in Java. It also demonstrates concepts you can use for any case where you use Java interop to connect Karate to any custom code, library or communication protocol.
+Karate has native support for Kafka as an optional dependency (non-open source and commercial). Enterprise users can find more information here: https://github.com/karatelabs/karate-addons/tree/main/karate-kafka. 
 
-When you use well designed utility classes, your Karate tests will be clean and only focus on making a call and what data is sent and received.
+A license is required for running (for e.g. in CI/CD) and a Karate Labs IDE subscription is required per developer seat.
 
-For example if you look at [`kafka.feature`](src/test/java/karate/kafka.feature) the test is just a few lines. Behind the scenes a Kafka consumer and producer is initialized and the call is made. The HTML report even includes details of the call and the messages on the wire, which you can easily customize.
-
-Rather than attempt a generic and dynamic approach, this approach shown here can re-use your existing Kafka implementation code-base and domain classes.
-
-This example also shows how to handle Avro for both serializing and deserializing of messages. You should be able to easily write a conversion from your Avro or Java payloads to JSON and vice-versa.
+This sample project shows how to use the Avro and plain-JSON support. Make sure you have a `.karate/karate.lic` file in place before running the example.
 
 ## Running
 * Docker is required to start the Kafka broker and Zookeeper. There is a `docker-compose.yml` file in this project.
@@ -18,4 +14,5 @@ This example also shows how to handle Avro for both serializing and deserializin
 * To stop the Docker containers run `docker-compose down`
 
 ## Further Reading
+* [kafka-custom](../kafka-custom/README.md) - it is possible to test Kafka by writing the Java integration code yourself and generating Java code, but the approach above is recommended
 * [karate-kafka](https://github.com/Sdaas/karate-kafka) - a community project that provides a generic approach to testing Kafka with Karate

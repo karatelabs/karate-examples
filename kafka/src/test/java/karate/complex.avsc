@@ -1,0 +1,95 @@
+{
+  "namespace": "io.karatelabs.examples",
+  "type": "record",
+  "name": "Complex",
+  "version": "0.2",
+  "fields": [
+    {
+      "name": "meta",
+      "type": {
+        "type": "record",
+        "name": "Meta",
+        "fields": [
+          {
+            "name": "metaId",
+            "type": "string"
+          },
+          {
+            "name": "metaType",
+            "type": {
+              "type": "enum",
+              "name": "MetaType",
+              "symbols": ["AAA", "BBB", "CCC"]
+            }
+          },
+          {
+            "name": "metaChildren",
+            "type": {
+              "type": "array",
+              "items": {
+                "type": "record",
+                "name": "MetaChild",
+                "fields": [
+                  {
+                    "name": "name",
+                    "type": "string"
+                  },
+                  {
+                    "name": "status",
+                    "type": {
+                      "name": "Status",
+                      "type": "enum",
+                      "symbols": ["ONE", "TWO", "THREE"]
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "payload",
+      "type": {
+        "type": "record",
+        "name": "Payload",
+        "fields": [
+          {
+            "name": "payloadId",
+            "type": "string"
+          },
+          {
+            "name": "payloadType",
+            "type": ["null", "string"]
+          },
+          {
+            "name": "payloadEnum",
+            "type": {
+              "name": "PayloadEnum",
+              "type": "enum",
+              "symbols": ["FIRST", "SECOND", "THIRD"]
+            }
+          },
+          {
+            "name": "payloadChild",
+            "type": {
+              "type": "record",
+              "name": "PayloadChild",
+              "fields": [
+                {
+                  "name": "field1",
+                  "type": "string"
+                },
+                {
+                  "name": "field2",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

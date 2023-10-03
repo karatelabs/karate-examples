@@ -1,0 +1,14 @@
+{
+    "meta": {
+        "metaId": "123",
+        "metaType": "AAA",
+        "metaChildren": [{ "name": "foo", "status": "ONE" }]
+    },
+    "payload": {
+        "payloadId": "456",
+        "payloadType": null,
+        "payloadEnum": "FIRST",
+        "payloadChild": {"field1": "foo", "field2": "bar"}
+    }
+}
+
