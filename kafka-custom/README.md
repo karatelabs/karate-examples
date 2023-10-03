@@ -1,4 +1,4 @@
-# Karate and Kafka
+# Karate and Kafka (Custom Integration)
 
 This sample project demonstrates how you can test Kafka messaging if your implementation is in Java. It also demonstrates concepts you can use for any case where you use Java interop to connect Karate to any custom code, library or communication protocol.
 
@@ -18,4 +18,5 @@ This example also shows how to handle Avro for both serializing and deserializin
 * To stop the Docker containers run `docker-compose down`
 
 ## Further Reading
-* [karate-kafka](https://github.com/Sdaas/karate-kafka) - a community project that provides a generic approach to testing Kafka with Karate
+* [Karate Official Support for Kafka](https://github.com/karatelabs/karate-addons/blob/main/karate-kafka/README.md) - recommended
+* [community-example](https://github.com/Sdaas/karate-kafka) - a community project that provides a generic approach to testing Kafka with Karate
