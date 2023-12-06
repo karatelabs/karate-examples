@@ -1,0 +1,71 @@
+# adapted from https://developer.confluent.io/courses/security/hands-on-setting-up-encryption
+# and https://developer.confluent.io/courses/security/hands-on-requiring-encryption-for-broker-traffic
+# cut and paste and run one at a time
+
+openssl req -new -nodes \
+   -x509 \
+   -days 365 \
+   -newkey rsa:2048 \
+   -keyout ssl/ca.key \
+   -out ssl/ca.crt \
+   -config conf/ca.cnf
+   
+cat ssl/ca.crt ssl/ca.key > ssl/ca.pem
+   
+openssl req -new \
+    -newkey rsa:2048 \
+    -keyout ssl/server.key \
+    -out ssl/server.csr \
+    -config conf/server.cnf \
+    -nodes
+    
+openssl x509 -req \
+    -days 3650 \
+    -in ssl/server.csr \
+    -CA ssl/ca.crt \
+    -CAkey ssl/ca.key \
+    -CAcreateserial \
+    -out ssl/server.crt \
+    -extfile conf/server.cnf \
+    -extensions v3_req    
+    
+openssl pkcs12 -export \
+    -in ssl/server.crt \
+    -inkey ssl/server.key \
+    -chain \
+    -CAfile ssl/ca.pem \
+    -name kafka \
+    -out ssl/server.p12 \
+    -password pass:karate
+    
+keytool -importkeystore \
+    -deststorepass karate \
+    -destkeystore ssl/server.keystore.pkcs12 \
+    -srckeystore ssl/server.p12 \
+    -deststoretype PKCS12  \
+    -srcstoretype PKCS12 \
+    -noprompt \
+    -srcstorepass karate
+    
+keytool -list -v \
+    -keystore ssl/server.keystore.pkcs12 \
+    -storepass karate    
+    
+# type in "karate" ENTER "EOF" ENTER for the next two
+
+tee ssl/creds_sslkey << EOF >/dev/null   
+
+tee ssl/creds_keystore << EOF >/dev/null   
+
+openssl s_client -connect localhost:29093 -tls1_3 -showcerts
+
+keytool -keystore ssl/client.truststore.pkcs12 \
+    -alias CARoot \
+    -import \
+    -file ssl/ca.crt \
+    -storepass karate \
+    -noprompt \
+    -storetype PKCS12
+
+
+

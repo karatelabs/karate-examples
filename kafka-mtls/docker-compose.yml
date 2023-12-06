@@ -1,0 +1,35 @@
+version: '3'
+services:
+    
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    ports:
+      - 22181:2181
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    hostname: kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - 29092:29092  
+      - 29093:29093
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181 
+      KAFKA_LISTENERS: PLAINTEXT://kafka:29092,SSL://kafka:29093,BROKER://kafka:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:29092,SSL://localhost:29093,BROKER://kafka:9092
+      KAFKA_INTER_BROKER_LISTENER_NAME: BROKER    
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,SSL:SSL,BROKER:PLAINTEXT
+      KAFKA_SSL_KEYSTORE_FILENAME: server.keystore.pkcs12
+      KAFKA_SSL_KEYSTORE_CREDENTIALS: creds_keystore
+      KAFKA_SSL_KEY_CREDENTIALS: creds_sslkey   
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_OFFSETS_TOPIC_NUM_PARTITIONS: 1
+      KAFKA_MIN_INSYNC_REPLICAS: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+    volumes:
+      - ./ssl:/etc/kafka/secrets
