@@ -20,12 +20,11 @@ public class KarateRmqProducer {
         this.queueName = queueName;
         try {
             ConnectionFactory factory = new ConnectionFactory();
-            Connection connection;
-            connection = factory.newConnection();
             factory.setUsername("guest");
             factory.setPassword("guest");
             factory.setHost("localhost");
             factory.setPort(5672);
+            Connection connection = factory.newConnection();
             channel = connection.createChannel();
             channel.queueDeclare(queueName, false, false, false, null);
             logger.debug("init producer");
