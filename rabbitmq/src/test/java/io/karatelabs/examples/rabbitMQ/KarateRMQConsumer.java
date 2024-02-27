@@ -17,8 +17,8 @@ public class KarateRmqConsumer {
     static final Logger logger = LoggerFactory.getLogger(KarateRmqConsumer.class);
     
     private final ConnectionFactory factory = new ConnectionFactory();
-    private final Connection connection = factory.newConnection();
-    private final Channel channel = connection.createChannel();
+    private final Connection connection;
+    private final Channel channel;
     public static List<String> messages = new ArrayList<>();
     
     private final String queueName;
@@ -26,6 +26,8 @@ public class KarateRmqConsumer {
     public KarateRmqConsumer(String queueName) throws IOException, TimeoutException {
         this.queueName = queueName;
         factory.setHost("localhost");
+        connection = factory.newConnection();
+        channel = connection.createChannel();
         channel.queueDeclare(queueName, false, false, false, null);
         logger.debug("init consumer, waiting for messages ...");
         listen();
