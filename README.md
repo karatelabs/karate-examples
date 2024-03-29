@@ -48,6 +48,7 @@ This repository also contains examples of how to use Karate and demonstrates int
 * [NPM](https://github.com/karatelabs/karate-npm) - there is an option to install Karate as a NPM package and use it from Node / JS
 * [Quarkus](quarkus/README.md) - Karate is a good fit for integration testing Quarkus applications
 * [RabbitMQ](rabbitmq/README.md) - Using Java to send and receive messages with RabbitMQ
+* [ReportPortal](https://github.com/reportportal/agent-java-karate) official integration agent from ReportPortal.
 * [Sauce Labs](saucelabs/README.md) - How to configure Karate to run tests on Sauce Labs
 * [Slack](slack/README.md) - Refer to blog posts and sample code from the community
 * [Spring Boot](spring-boot/README.md) - Resources on testing Spring Boot applications with Karate
