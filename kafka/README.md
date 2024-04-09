@@ -15,5 +15,5 @@ This sample project shows how to use the Avro and plain-JSON support. Make sure 
 
 ## Further Reading
 * [kafka-custom](../kafka-custom/README.md) - it is possible to test Kafka by writing the Java integration code yourself and generating Java code, but the approach above is recommended
-* [kafla-mtls](../kafka-mtls/README.md) - using MTLS (SSL / Auth) with Kafka
+* [kafla-mtls](../kafka-mtls/README.md) - using MTLS (SSL / Auth) with Kafka and also includes an example of hybrid API + Kafka testing
 * [community-example](https://github.com/Sdaas/karate-kafka) - a community project that provides a generic approach to testing Kafka with Karate, but requires you to to write / generate Java code.

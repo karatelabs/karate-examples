@@ -18,9 +18,9 @@
         <dependency>
             <groupId>io.karatelabs</groupId>
             <artifactId>karate-kafka</artifactId>
-            <version>0.2.0</version>
+            <version>0.2.1</version>
             <scope>test</scope>
-        </dependency>               
+        </dependency>                       
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>

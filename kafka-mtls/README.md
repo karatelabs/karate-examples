@@ -20,6 +20,11 @@ Here the [docker-compose.yml](docker-compose.yml) configures Kafka to use SSL. T
 
 The certificates and related files in the [/ssl](ssl) folder were created using [conf/commands.txt](conf/commands.txt).
 
+## Hybrid Test
+This example also contains an example of how to mix API and Kafka tests, which is a common scenario.
+
+Refer to [kafka-hybrid.feature](src/test/java/karate/kafka-hybrid.feature). Note how `karate.consume()` is called at the start of the test before any other actions.
+
 Commands were adapted from these references: 
 * [Setting up Encryption](https://developer.confluent.io/courses/security/hands-on-setting-up-encryption)
 * [Encrypting Traffic](https://developer.confluent.io/courses/security/hands-on-requiring-encryption-for-broker-traffic/)
