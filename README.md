@@ -41,6 +41,7 @@ This repository also contains examples of how to use Karate and demonstrates int
 * [GitHub Codespaces](https://github.com/karatelabs/karate/wiki/Get-Started:-GitHub-Codespaces) - open a GitHub project directly in a browser and run and edit Karate tests
 * [gRPC](grpc/README.md) - How to test gRPC services with Karate
 * [Gatling](https://github.com/karatelabs/karate/tree/master/karate-gatling) - Karate can re-use API functional tests as performance tests !
+* [JBang](jbang/README.md) - using only [JBang](https://www.jbang.dev) to run Karate tests and even manage custom Java code and classpath libraries without installing Java
 * [JUnit](https://github.com/karatelabs/karate#junit-5) - There is also a [pure Java API](https://github.com/karatelabs/karate#parallel-execution) to run tests from any Java unit-testing framework such as TestNG
 * [Kafka](kafka/README.md) - Using the power of Karate Java interop to test Kafka and async flows
 * [Lambdatest](lambdatest/README.md) - How to configure Karate to run tests on Lambdatest
