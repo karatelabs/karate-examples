@@ -4,9 +4,8 @@
 
 public class karate {
 
-    public static void main(String[] args) {
-		com.intuit.karate.Main.main(args);
-    }
+  public static void main(String[] args) {
+    com.intuit.karate.Main.main(args);
+  }
 
 }
-
