@@ -2,4 +2,5 @@
 target/
 .idea/
 .karate/
-
+node_modules/
+package-lock.json
