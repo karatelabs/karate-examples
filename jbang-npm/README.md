@@ -195,3 +195,8 @@ The request payload contains the generated name:
 ```
 
 Every time you run the test, the name will change. Congrats! You've successfully consumed Java libraries in your Karate test without having to install Java or Maven/Gradle to manage the Java dependencies for you.
+
+## Further Reading
+
+* [Other Runtime Options](https://github.com/karatelabs/karate/wiki/Get-Started:-Other-Runtime-Options)
+* [Karate and JBang](../jbang/README.md) - an alternate approach of using JBang on the command-line (without NPM) but with the ability to use custom code and Java libraries

@@ -15,6 +15,7 @@ jbang karate.java .
 ## Further Reading
 
 * [Other Runtime Options](https://github.com/karatelabs/karate/wiki/Get-Started:-Other-Runtime-Options)
+* [Karate, JBang and NPM](../jbang-npm/README.md) - for those who want to use 3rd party Java libraries or custom code and avoid Java compilation and Maven
 
 
 
