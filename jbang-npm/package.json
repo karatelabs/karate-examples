@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "test": "node test.js"
+  },
+  "devDependencies": {
+    "@karatelabs/karate": "^0.2.2"
+  },
+  "dependencies": {
+    "karate": "^1.0.0"
+  }
+}
