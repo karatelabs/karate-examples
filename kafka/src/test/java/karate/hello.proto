@@ -1,8 +1,10 @@
 syntax = "proto3";
 
+import "hello-common.proto";
+
 message Hello {
   string message = 1;
-
+  Sender sender = 2;
 }
 
 message Another {
