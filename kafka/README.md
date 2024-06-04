@@ -1,6 +1,6 @@
 # Karate Kafka
 
-Karate has native support for Kafka as an optional dependency (non-open source and commercial). Enterprise users can find more information here: [Karate Kafka](https://github.com/karatelabs/karate-addons/tree/main/karate-kafka). 
+Karate has native support for Kafka as an optional dependency (non-open source and commercial). Enterprise users can find more information here: [Karate-Kafka](https://github.com/karatelabs/karate-addons/tree/main/karate-kafka). 
 
 A license is required for running (for e.g. in CI/CD) and a Karate Labs IDE subscription is required per developer seat.
 

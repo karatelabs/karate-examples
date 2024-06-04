@@ -1,8 +1,5 @@
 syntax = "proto3";
 
-option java_multiple_files = true;
-option java_package = "io.karatelabs.examples.grpc";
-
 service HelloService {
   rpc Hello (HelloRequest) returns (HelloReply) {}
   rpc LotsOfReplies (HelloRequest) returns (stream HelloReply) {}

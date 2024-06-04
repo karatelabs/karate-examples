@@ -1,5 +1,8 @@
 # Karate and Kafka (Custom Integration)
 
+> [!Note]                                                
+> The [built-in support for Kafka](https://github.com/karatelabs/karate-addons/blob/main/karate-kafka/README.md) is recommended instead of this approach below. The advantage is that you don't need to generate or compile extra Java code.        
+
 This sample project demonstrates how you can test Kafka messaging if your implementation is in Java. It also demonstrates concepts you can use for any case where you use Java interop to connect Karate to any custom code, library or communication protocol.
 
 When you use well designed utility classes, your Karate tests will be clean and only focus on making a call and what data is sent and received.

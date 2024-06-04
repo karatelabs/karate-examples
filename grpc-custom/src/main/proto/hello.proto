@@ -5,9 +5,6 @@ option java_package = "io.karatelabs.examples.grpc";
 
 service HelloService {
   rpc Hello (HelloRequest) returns (HelloReply) {}
-  rpc LotsOfReplies (HelloRequest) returns (stream HelloReply) {}
-  rpc LotsOfGreetings (stream HelloRequest) returns (HelloReply) {}
-  rpc BidiHello (stream HelloRequest) returns (stream HelloReply) {}
 }
 
 message HelloRequest {

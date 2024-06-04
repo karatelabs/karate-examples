@@ -1,13 +1,14 @@
 # Karate and gRPC
 
-This sample project demonstrates how you can test gRPC if your implementation is in Java. It also demonstrates concepts you can use for any case where you use Java interop to connect Karate to any custom code, library or communication protocol.
+Karate has native support for gRPC as an optional dependency (non-open source and commercial). Enterprise users can find more information here: [Karate-gRPC](https://github.com/karatelabs/karate-addons/tree/main/karate-grpc). 
 
-When you use well designed utility classes, your Karate tests will be clean and only focus on making a call and what data is sent and received.
+A license is required for running (for e.g. in CI/CD) and a Karate Labs IDE subscription is required per developer seat. Make sure you have a `.karate/karate.lic` file in place before running the example.
 
-For example if you look at [`grpc.feature`](src/test/java/karate/grpc.feature) the test is just one line. Behind the scenes a gRPC server and client is initialized and the call is made. The HTML report even includes details of the call and the messages on the wire, which you can easily customize.
+## Running
+This is a normal Java / Maven project so running `mvn clean compile test` will be sufficient to run all the tests.
 
-Rather than attempt a generic and dynamic approach, this approach shown here can re-use your existing gRPC implementation code-base and domain classes. If your gRPC implementation is in another language, you can still use this approach, but use Maven (or Gradle) to generate the Java code from the `.proto` files.
+Take a look at [`hello.feature`](src/test/java/karate/hello.feature) to see how simple yet expressive gRPC tests can be.
 
 ## Further Reading
+* [grpc-custom](../grpc-custom/README.md) - it is possible to test gRPC by writing the Java integration code yourself and generating Java code, but the approach above is recommended
 
-* [karate-grpc](https://github.com/pecker-io/karate-grpc) - a community project that provides a generic approach to testing gRPC with Karate
