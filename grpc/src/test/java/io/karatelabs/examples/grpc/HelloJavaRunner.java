@@ -1,19 +1,16 @@
 package io.karatelabs.examples.grpc;
 
 import io.grpc.Server;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
 
-class HelloJavaTest {
+class HelloJavaRunner {
 
-    static final Logger logger = LoggerFactory.getLogger(HelloJavaTest.class);
+    static final Logger logger = LoggerFactory.getLogger(HelloJavaRunner.class);
 
     static Server server;
     HelloClient client;
@@ -21,6 +18,11 @@ class HelloJavaTest {
     @BeforeAll
     static void beforeAll() throws Exception {
         server = HelloServer.start(0, true);
+    }
+
+    @AfterAll
+    static void afterAll() {
+        server.shutdownNow();
     }
 
     @BeforeEach
