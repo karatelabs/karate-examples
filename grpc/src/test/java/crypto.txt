@@ -25,7 +25,7 @@ openssl req -passin pass:1111 -new -key server.key -out server.csr -subj "/CN=${
 # Step 4: self-sign server certificate using CA (server.crt)
 openssl x509 -req -passin pass:1111 -days 365 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
 
-# Step 5: convert server certificate to .pem format (server.pem)
+# Step 5: convert server private key to .pem format (server.pem)
 openssl pkcs8 -topk8 -nocrypt -passin pass:1111 -in server.key -out server.pem
 
 # Step 6: generate client private key (client.key)
@@ -37,5 +37,5 @@ openssl req -passin pass:1111 -new -key client.key -out client.csr -subj "/CN=${
 # Step 8: self-sign client certificate using CA (client.crt)
 openssl x509 -req -passin pass:1111 -days 365 -in client.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out client.crt
 
-# Step 9: convert client certificate to .pem format (client.pem)
+# Step 9: convert client private key to .pem format (client.pem)
 openssl pkcs8 -topk8 -nocrypt -passin pass:1111 -in client.key -out client.pem

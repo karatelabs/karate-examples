@@ -36,10 +36,6 @@ public class HelloServer extends HelloServiceGrpc.HelloServiceImplBase {
             @Override
             public void onNext(HelloRequest helloRequest) {
                 names.add(helloRequest.getName());
-                if (names.size() >= 3) {
-                    responseObserver.onNext(HelloReply.newBuilder().setMessage("hello " + names).build());
-                    responseObserver.onCompleted();
-                }
             }
 
             @Override
@@ -49,7 +45,8 @@ public class HelloServer extends HelloServiceGrpc.HelloServiceImplBase {
 
             @Override
             public void onCompleted() {
-
+                responseObserver.onNext(HelloReply.newBuilder().setMessage("hello " + names).build());
+                responseObserver.onCompleted();
             }
         };
     }

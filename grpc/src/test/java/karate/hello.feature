@@ -44,7 +44,6 @@ Feature: grpc
     * session.send({ name: 'John' })
     * session.send({ name: 'Smith' })
     * session.send({ name: 'Jane' })
-    * session.flush()
     * match session.collect() ==
       """
       [
