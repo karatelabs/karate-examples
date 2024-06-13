@@ -7,7 +7,7 @@ Feature: karate-kafka demo
         'bootstrap.servers': '127.0.0.1:29092'
       }
       """
-    * register { name: 'hello-proto', path: 'classpath:karate/hello.proto', message: 'Hello' }
+    * register { name: 'hello-proto', path: 'classpath:karate/hello.proto', message: 'Hello', roots: ['classpath:karate'] }
 
   Scenario:
     * def session = karate.consume('kafka')
