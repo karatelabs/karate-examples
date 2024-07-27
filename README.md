@@ -24,10 +24,10 @@
 * [consumer-driven-contracts](https://github.com/karatelabs/karate/tree/master/examples/consumer-driven-contracts) - Karate's approach to contract-testing depends on mocks, and this project has a [good example](https://github.com/karatelabs/karate/blob/master/examples/consumer-driven-contracts/payment-producer/src/test/java/payment/producer/mock/payment-mock.feature).
 
 ## Web Browser Automation
-* [karate-e2e-tests](https://github.com/karatelabs/karate/tree/master/karate-e2e-tests) - Part of the main Karate project, and also a good example of setting up configuration for multiple browsers and testing in parallel
+* [karate-e2e-tests](https://github.com/karatelabs/karate/tree/master/karate-e2e-tests) - Part of the main Karate project, and also a good example of setting up configuration for multiple browsers and testing in parallel using the [karate-chrome](https://github.com/karatelabs/karate/tree/master/karate-core#karate-chrome) Docker container
 * [karate-todo](https://github.com/karatelabs/karate-todo) - includes a working UI and [UI tests](https://github.com/karatelabs/karate-todo/tree/main/src/test/java/app/ui), even "hybrid" tests that mix API and UI calls
-* [examples/jobserver](https://github.com/karatelabs/karate/tree/master/examples/jobserver) - This Karate project includes some [web-browser tests](https://github.com/karatelabs/karate/tree/master/examples/jobserver/src/test/java/jobtest/web)
 * [Visual Testing](https://github.com/karatelabs/karate/tree/master/examples/image-comparison) - refer to this example on how to use Karate's [built-in support for image-comparison](https://github.com/karatelabs/karate/#compare-image)
+* Note that Karate UI tests can be run using [Sauce Labs](https://github.com/karatelabs/karate-examples/blob/main/saucelabs/README.md), [BrowserStack](https://github.com/karatelabs/karate-examples/blob/main/browserstack/README.md), [Lambdatest](https://github.com/karatelabs/karate-examples/blob/main/lambdatest/README.md) or any other infrastucture that supports the [WebDriver (a.k.a. Selenium) protocol](https://www.w3.org/TR/webdriver/) - which means that you have plenty of options for running tests in parallel and you can even self-host the infrastructure to do so
 
 ## Windows Desktop Automation
 * [Karate Robot Windows Install Guide](https://github.com/karatelabs/karate/wiki/Karate-Robot-Windows-Install-Guide) - get started testing a simple Windows application
