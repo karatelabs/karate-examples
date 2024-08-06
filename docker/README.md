@@ -3,12 +3,12 @@
 ## Standalone JAR
 This simple minimalistic [`Dockerfile`](Dockerfile) is sufficient to package a Java Runtime Environment and the Karate [Standalone JAR](https://github.com/karatelabs/karate/wiki/Get-Started:-Other-Runtime-Options#standalone-jar).
 
-Here we are using an [`adoptopenjdk`](https://hub.docker.com/_/adoptopenjdk) Docker image as a base.
+Here we are using an [`eclipse-temurin`](https://hub.docker.com/_/eclipse-temurin/) Docker image as a base.
 
 ```docker
-FROM adoptopenjdk:11-jre-hotspot
+FROM eclipse-temurin:17-jre
 
-RUN curl -L -o karate.jar https://github.com/karatelabs/karate/releases/download/v1.4.0/karate-1.4.0.jar
+RUN curl -L -o karate.jar https://github.com/karatelabs/karate/releases/download/v1.5.0/karate-1.5.0.jar
 ```
 
 The Docker recipe is very simple, just download `karate.jar` into the root of the docker image. To build a docker image called `karate-jre` locally, you can do this: 
@@ -45,31 +45,13 @@ You can also `ADD` feature files to the Docker image and run tests when the cont
 
 ## Using Maven
 
-Using the [maven:3-jdk-11](https://hub.docker.com/layers/library/maven/3-jdk-11/images/sha256-37a94a4fe3b52627748d66c095d013a17d67478bc0594236eca55c8aef33ddaa) image may be sufficient for most use-cases. For example:
+Using the [maven:3-amazoncorretto-17](https://hub.docker.com/layers/library/maven/3-amazoncorretto-17/images/sha256-9c29d34f56dcb979fb5819193abff63246115b21cdfc58287f73708af7a66117?context=explore) image may be sufficient for most use-cases. For example:
 
 ```bash
-docker run -it --rm -v "$(pwd)":/src -w /src -v "$HOME/.m2":/root/.m2 maven:3-jdk-11 mvn test
+docker run -it --rm -v "$(pwd)":/src -w /src -v "$HOME/.m2":/root/.m2 maven:3-amazoncorretto-17 mvn test
 ```
 
 Here we use `-v "$HOME/.m2":/root/.m2` to mount and re-use your local Maven JAR download "cache" (which saves time), but you can omit it if needed for a true "from scratch" experience.
-
-## Using Maven and the Standalone JAR
-
-This super-simple [Dockerfile](Dockerfile-mvn) is useful for creating a Docker image that can be used as a "worker node" for [distributed testing](https://github.com/karatelabs/karate/wiki/Distributed-Testing) of a Maven project, where you don't need web-browser automation or Chrome installed.
-
-If using this folder, you can build it like so:
-
-```bash
-docker build -t karate-mvn -f Dockerfile-mvn .
-```
-
-Now you can start a "worker node" like this:
-
-```bash
-docker run -it --rm karate-mvn java -jar karate.jar -j http://host.docker.internal:8090
-```
-
-Where the `-j` option is the URL of the "job manager" node that will distribute tests across worker nodes. An example of a job manager for a distributed performance test can be found here: [TodoPerfJobConfig.java](https://github.com/karatelabs/karate-todo/blob/main/src/test/java/app/perf/job/TodoPerfJobConfig.java) - and the `main()` method will start the server.
 
 ## Further Reading
 
