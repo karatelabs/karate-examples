@@ -13,5 +13,6 @@ This is a normal Java / Maven project so running `mvn clean test` will be suffic
 
 ### References
 * [RDBMS example](../database/README.md)
+* [SSH example](../ssh/README.md) - shows how you can pass data to your Java helper class from your test
 
 
