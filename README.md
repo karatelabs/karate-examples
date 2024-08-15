@@ -37,7 +37,7 @@ This repository also contains examples of how to use Karate and demonstrates int
 
 * [Accessibility / Axe](axe/README.md) - Using a JS library to run checks on the DOM in a UI test is very easy
 * [ActiveMQ / Async](https://github.com/karatelabs/karate/tree/master/karate-netty#consumer-provider-example) - besides the [demo example](https://github.com/karatelabs/karate/tree/master/karate-demo/src/test/java/mock/contract), refer to [this diagram & example](https://twitter.com/getkarate/status/1417023536082812935) for generic async flows using Java interop
-* [AWS] - Any AWS service can be integrated using the [AWS Java SDK](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/home.html)
+* [AWS](aws/README.md) - Any AWS service can be integrated using the [AWS Java SDK](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/home.html) and [Java Interop](https://github.com/karatelabs/karate#calling-java).
 * [Broadcom / CA](https://techdocs.broadcom.com/us/en/ca-enterprise-software/devops/continuous-delivery-director-integrations/1-0/integrations-overview/plug-ins/karate-API-plug-in.html) - Broadcom Continuous Delivery Director has a plug-in for Karate integration
 * [BrowserStack](browserstack/README.md) - How to configure Karate to run tests on BrowserStack
 * [CLI / Bash](cli/README.md) - How to use Karate to test the command-line or use shell scripts
