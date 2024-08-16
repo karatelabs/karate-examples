@@ -19,7 +19,7 @@
         <dependency>
             <groupId>io.karatelabs</groupId>
             <artifactId>karate-websocket</artifactId>
-            <version>0.1.0</version>
+            <version>0.1.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
