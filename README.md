@@ -59,5 +59,5 @@ This repository also contains examples of how to use Karate and demonstrates int
 * [Slack](slack/README.md) - Refer to blog posts and sample code from the community
 * [Spring Boot](spring-boot/README.md) - Resources on testing Spring Boot applications with Karate
 * [SSH](ssh/README.md) - how to open an SSH connection and invoke server commands using Karate
-* [WebSockets](websockets/README.md) - Built-in support for WebSockets or you can use Java interop for very advanced scenarios
+* [WebSocket](websocket/README.md) - Built-in support for WebSocket or you can use Java interop for very advanced scenarios
 * [Xray](https://docs.getxray.app/display/XRAYCLOUD/Testing+APIs+using+Karate+DSL) - Official documentation from the Xray team on how to integrate Karate
