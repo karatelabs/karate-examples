@@ -12,7 +12,7 @@ Now [`dynamo-db.feature`](src/test/java/karate/dynamo-db.feature) is just a few 
 This is a normal Java / Maven project so running `mvn clean test` will be sufficient to run tests.
 
 ### References
-* [RDBMS example](../database/README.md)
+* [RDBMS example](../database/README.md) - how to test Spring Boot and an RDBMS in a single example
 * [SSH example](../ssh/README.md) - shows how you can pass data to your Java helper class from your test
 
 
