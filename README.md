@@ -37,6 +37,7 @@ This repository also contains examples of how to use Karate and demonstrates int
 
 * [Accessibility / Axe](axe/README.md) - Using a JS library to run checks on the DOM in a UI test is very easy
 * [ActiveMQ / Async](https://github.com/karatelabs/karate/tree/master/karate-netty#consumer-provider-example) - besides the [demo example](https://github.com/karatelabs/karate/tree/master/karate-demo/src/test/java/mock/contract), refer to [this diagram & example](https://twitter.com/getkarate/status/1417023536082812935) for generic async flows using Java interop
+* [Allure](https://github.com/allure-examples/allure-karate-example) - Official support for [Allure Report](https://allurereport.org)
 * [AWS](aws/README.md) - Any AWS service can be integrated using the [AWS Java SDK](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/home.html) and [Java Interop](https://github.com/karatelabs/karate#calling-java).
 * [Broadcom / CA](https://techdocs.broadcom.com/us/en/ca-enterprise-software/devops/continuous-delivery-director-integrations/1-0/integrations-overview/plug-ins/karate-API-plug-in.html) - Broadcom Continuous Delivery Director has a plug-in for Karate integration
 * [BrowserStack](browserstack/README.md) - How to configure Karate to run tests on BrowserStack
@@ -46,6 +47,7 @@ This repository also contains examples of how to use Karate and demonstrates int
 * [GitHub Codespaces](https://github.com/karatelabs/karate/wiki/Get-Started:-GitHub-Codespaces) - open a GitHub project directly in a browser and run and edit Karate tests
 * [gRPC](grpc/README.md) - seamlessly test gRPC services with Karate
 * [Gatling](https://github.com/karatelabs/karate/tree/master/karate-gatling) - Karate can re-use API functional tests as performance tests !
+* [Jacoco](https://github.com/karatelabs/karate/tree/master/karate-demo#code-coverage-using-jacoco) - use Jacoco for code-coverage
 * [JBang](jbang/README.md) - using only [JBang](https://www.jbang.dev) to run Karate tests and even manage custom Java code and classpath libraries without installing Java
 * [JUnit](https://github.com/karatelabs/karate#junit-5) - There is also a [pure Java API](https://github.com/karatelabs/karate#parallel-execution) to run tests from any Java unit-testing framework such as TestNG
 * [Kafka](kafka/README.md) - seamlessly test Kafka and async flows
