@@ -23,6 +23,7 @@ Note that for a typical test-suite, you will set variables via the [`karate-conf
 
 * [Karate and Lambdatest on Stack Overflow](https://stackoverflow.com/search?q=%5Bkarate%5D+lambdatest)
 * [Running UI Tests in parallel](https://stackoverflow.com/a/60387907/143475)
+* [LambdaTest support for Karate](https://github.com/LambdaTest/hyperexecute-karate-sample)
 
 
 
