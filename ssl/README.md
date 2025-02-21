@@ -9,7 +9,7 @@ The relevant Karate documentation can be found here: [X509 Certificate Authentic
 Run the server from the IDE or via Maven using this command:
 
 ```
- mvn -Dexec.mainClass=io.karatelabs.examples.ssl.TestService compile exec:java
+mvn -Dexec.mainClass=io.karatelabs.examples.ssl.TestService compile exec:java
 ```
 
 This will start an HTTPS server on port 8080.
@@ -27,6 +27,10 @@ You can also run the test suite that will start the server automatically.
 ```
 mvn test
 ```
+
+## Further Reading
+* [Karate and Spring Boot](../spring-boot/README.md)
+* [Karate and Databases](../database/README.md)
 
 
 
