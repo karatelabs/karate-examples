@@ -29,6 +29,7 @@ If you use the shaded JAR, you may see extra logging from libraries such as Thym
 * [Karate and CLI](../cli/README.md) - teams have reported success with using Karate to call CLI commands that in turn call the 
 database
 * [Karate and Spring Boot](../spring-boot/README.md)
+* [Karate and SSL](../ssl/README.md)
 
 
 
