@@ -1,27 +1,30 @@
 Feature: karate-kafka demo
 
-  Background:
-    * configure kafka =
-      """
-      {
-        'bootstrap.servers': '127.0.0.1:29092'
-      }
-      """
-    * register { name: 'hello-proto', path: 'classpath:karate/hello.proto', message: 'Hello', roots: ['classpath:karate'] }
+Background:
+* configure kafka =
+"""
+{ 
+  'bootstrap.servers': '127.0.0.1:29092'
+}
+"""
+* def channel = karate.channel('kafka')
+* channel.register({ name: 'hello-proto', path: 'classpath:karate/hello.proto', message: 'Hello', roots: ['classpath:karate'] })
 
-  Scenario:
-    * def session = karate.consume('kafka')
-    * session.count = 1
-    * session.topic = 'test-topic'
-    * session.schema = 'hello-proto'
-    * session.start()
+Scenario:
+* def consumer = channel.consumer()
+* consumer.count = 1
+* consumer.topic = 'test-topic'
+* consumer.schema = 'hello-proto'
+* consumer.start()
 
-    * topic 'test-topic'
-    * schema 'hello-proto'
-    * key 'first'
-    * value { message: 'hello', sender: { name: 'John Smith' } }
-    * produce kafka
+* def producer = channel.producer()
 
-    * def response = session.collect()
-    * match response[0].key == 'first'
-    * match response[0].value == { message: 'hello', sender: { name: 'John Smith' } }
+* producer.topic = 'test-topic'
+* producer.schema = 'hello-proto'
+* producer.key = 'first'
+* producer.value = { message: 'hello', sender: { name: 'John Smith' } }
+* producer.send()
+
+* def response = consumer.collect()
+* match response[0].key == 'first'
+* match response[0].value == { message: 'hello', sender: { name: 'John Smith' } }

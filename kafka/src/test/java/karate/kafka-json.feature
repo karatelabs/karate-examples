@@ -9,16 +9,21 @@ Background:
 """
 
 Scenario:
-* def session = karate.consume('kafka')
-* session.topic = 'test-topic'
-* session.count = 1
-* session.start()
+* def channel = karate.channel('kafka')
+* def consumer = channel.consumer()
 
-* topic 'test-topic'
-* key 'first'
-* value { message: 'hello', info: { first: 1, second: true } }
-* produce kafka
+* consumer.count = 1
+* consumer.topic = 'test-topic'
+* consumer.timeout = 5000
+* consumer.start()
 
-* def response = session.collect()
-* match response[0].key == 'first'
-* match response[0].value == { message: 'hello', info: { first: 1, second: true } }
+* def producer = channel.producer()
+
+* producer.topic = 'test-topic'
+* producer.key = 'first'
+* producer.value = { message: 'hello', info: { first: 1, second: true } }
+* producer.send()
+
+* def response = consumer.pop()
+* match response.key == 'first'
+* match response.value == { message: 'hello', info: { first: 1, second: true } }

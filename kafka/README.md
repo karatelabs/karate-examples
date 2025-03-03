@@ -9,9 +9,9 @@ This sample project shows how to use the Avro and plain-JSON support. Make sure 
 ## Running
 * Docker is required to start the Kafka broker and Zookeeper. There is a `docker-compose.yml` file in this project.
 * Run the following commands
-  * `docker-compose up -d`
+  * `docker compose up -d`
   * `mvn test`
-* To stop the Docker containers run `docker-compose down`
+* To stop the Docker containers run `docker compose down`
 
 ## Further Reading
 * [kafka-custom](../kafka-custom/README.md) - it is possible to test Kafka by writing the Java integration code yourself and generating Java code, but the approach above is recommended

@@ -8,19 +8,23 @@ Feature:
       'schema.registry.url': 'http://localhost:8081'
     }
     """
-    * register { name: 'complex', path: 'classpath:karate/complex.avsc' }
+    * def channel = karate.channel('kafka')
+    * channel.register({ name: 'complex', path: 'classpath:karate/complex.avsc' })
 
   Scenario: Complex Avro - test-topic1
-    * def session = karate.consume('kafka')
-    * session.topic = 'test-topic1'
-    * session.count = 1
-    * session.start()
+    * def consumer = channel.consumer()
 
-    * topic 'test-topic1'
-    * schema 'complex'
-    * key 'zero'
-    * headers { foo: 'bar1', baz: 'ban1' }
-    * value
+    * consumer.topic = 'test-topic1'
+    * consumer.count = 1
+    * consumer.start()
+
+    * def producer = channel.producer()
+
+    * producer.topic = 'test-topic1'
+    * producer.schema = 'complex'
+    * producer.key = 'zero'
+    * producer.headers = { foo: 'bar1', baz: 'ban1' }
+    * def value =
     """
     {
         "meta": {
@@ -36,9 +40,10 @@ Feature:
         }
     }
     """
-    * produce kafka
+    * producer.value = value
+    * producer.send()
 
-    * def response = session.collect()
+    * def response = consumer.collect()
     * match response[0].key == 'zero'
     * match response[0].headers == { foo: 'bar1', baz: 'ban1' }
     * match response[0].value ==
@@ -67,16 +72,18 @@ Feature:
     """
 
   Scenario: Complex Avro - test-topic2
-    * def session = karate.consume('kafka')
-    * session.topic = 'test-topic2'
-    * session.count = 1
-    * session.start()
+    * def consumer = channel.consumer()
+    * consumer.topic = 'test-topic2'
+    * consumer.count = 1
+    * consumer.start()
 
-    * topic 'test-topic2'
-    * schema 'complex'
-    * key 'zero'
-    * headers { foo: 'bar1', baz: 'ban1' }
-    * value
+    * def producer = channel.producer()
+
+    * producer.topic = 'test-topic2'
+    * producer.schema = 'complex'
+    * producer.key = 'zero'
+    * producer.headers = { foo: 'bar1', baz: 'ban1' }
+    * def value =
     """
     {
         "meta": {
@@ -92,9 +99,10 @@ Feature:
         }
     }
     """
-    * produce kafka
+    * producer.value = value
+    * producer.send()
 
-    * def response = session.collect()
+    * def response = consumer.collect()
     * match response[0].key == 'zero'
     * match response[0].headers == { foo: 'bar1', baz: 'ban1' }
     * match response[0].value ==

@@ -9,7 +9,7 @@
  
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <maven.compiler.version>3.11.0</maven.compiler.version>
         <maven.surefire.version>3.0.0</maven.surefire.version>
     </properties>    
@@ -18,7 +18,7 @@
         <dependency>
             <groupId>io.karatelabs</groupId>
             <artifactId>karate-kafka</artifactId>
-            <version>0.2.4</version>
+            <version>0.3.0</version>
             <scope>test</scope>
         </dependency>               
         <dependency>
