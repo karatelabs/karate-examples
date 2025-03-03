@@ -18,7 +18,7 @@
         <dependency>
             <groupId>io.karatelabs</groupId>
             <artifactId>karate-kafka</artifactId>
-            <version>0.2.1</version>
+            <version>0.3.0</version>
             <scope>test</scope>
         </dependency>                       
         <dependency>

@@ -13,10 +13,13 @@ Background:
 
 Scenario:
 # set up the listener before triggering any kafka events
-* def session = karate.consume('kafka')
-* session.topic = 'test-topic'
-* session.count = 1
-* session.start()
+* def channel = karate.channel('kafka')
+
+* def consumer = channel.consumer()
+
+* consumer.topic = 'test-topic'
+* consumer.count = 1
+* consumer.start()
 
 # this api call will trigger a kafka message (from mock.feature)
 * url 'http://localhost:' + karate.properties['server.port']
@@ -24,6 +27,6 @@ Scenario:
 * match response == { success: true }
 
 # here we wait until the session gets the expected message
-* def response = session.collect()
-* match response[0].key == 'first'
-* match response[0].value == { hello: 'world' }
+* def response = consumer.pop()
+* match response.key == 'first'
+* match response.value == { hello: 'world' }
