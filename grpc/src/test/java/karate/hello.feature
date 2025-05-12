@@ -1,7 +1,7 @@
 Feature: grpc
 
   Background:
-    * def session = karate.consume('grpc')
+    * def session = karate.channel('grpc')
     * session.host = 'localhost'
     * session.port = karate.properties['grpc.port']
     * session.proto = 'classpath:karate/hello.proto'

@@ -9,11 +9,10 @@
  
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <maven.compiler.version>3.11.0</maven.compiler.version>
-        <maven.surefire.version>3.0.0</maven.surefire.version>        
-        <karate.version>1.4.1</karate.version>
-        <grpc.version>1.64.0</grpc.version>
+        <maven.surefire.version>3.0.0</maven.surefire.version>
+        <grpc.version>1.72.0</grpc.version>
     </properties>    
 
     <dependencies>
@@ -58,7 +57,7 @@
         <dependency>
             <groupId>io.karatelabs</groupId>
             <artifactId>karate-grpc</artifactId>
-            <version>0.1.0</version>
+            <version>0.2.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>

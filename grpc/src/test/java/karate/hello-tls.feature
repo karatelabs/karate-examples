@@ -1,7 +1,7 @@
 Feature: grpc with tls / ssl
 
   Background:
-    * def session = karate.consume('grpc')
+    * def session = karate.channel('grpc')
     * session.host = 'localhost'
     * session.port = karate.properties['grpc.port']
 
