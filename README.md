@@ -65,4 +65,4 @@ This repository also contains examples of how to use Karate and demonstrates int
 * [SSH](ssh/README.md) - how to open an SSH connection and invoke server commands using Karate
 * [SSL](ssl/README.md) - how to test APIs that require MTLS and setting up X509 certificates on the HTTP client side
 * [WebSocket](websocket/README.md) - Built-in support for WebSocket or you can use Java interop for very advanced scenarios
-* [Xray](https://docs.getxray.app/display/XRAYCLOUD/Testing+APIs+using+Karate+DSL) - Official documentation from the Xray team on how to integrate Karate
+* [Xray](https://docs.getxray.app/space/XRAY/301410448/Testing+APIs+using+Karate+DSL) - Official documentation from the Xray team on how to integrate Karate
