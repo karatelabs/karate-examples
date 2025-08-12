@@ -2,6 +2,7 @@
 
 > [!IMPORTANT]
 > Please note that Karate 1.4.1 [will not work if your Java version is 22 or greater](https://github.com/karatelabs/karate/issues/2542). Try to remain on a lower version of Java or upgrade your Karate version to 1.5.X
+> Also Karate 1.5.1 [will not work if your Java version is 24 or greater](https://github.com/karatelabs/karate/issues/2705). Use Karate 1.5.2 if needed.
 
 * [karate-template](https://github.com/karatelabs/karate-template) - use this GitHub template if you are looking for a quick-start "skeleton" Karate project for API testing
 * [karate-todo](https://github.com/karatelabs/karate-todo) - great for training or demo-ing all capabilities of Karate. It includes an app that has a working front-end UI and back-end API. Examples of API tests, API performance tests, API mocks and Web-Browser automation are included.
