@@ -11,8 +11,11 @@ Feature: grpc
     * session.method = 'Hello'
     * session.send({ name: 'John' })
     * match session.pop() == { message: 'hello John' }
+    # metadata handling
+    * session.metadata = { authorization: 'secret' }
     * session.send({ name: 'Smith' })
-    * match session.pop() == { message: 'hello Smith' }
+    * match session.pop() == { message: 'hello Smith with authorization: secret' }
+    * match session.metadataResponse contains { 'authorization-response': 'secret-response' }
 
   Scenario: server stream
     * session.method = 'LotsOfReplies'

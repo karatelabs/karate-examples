@@ -57,7 +57,7 @@
         <dependency>
             <groupId>io.karatelabs</groupId>
             <artifactId>karate-grpc</artifactId>
-            <version>0.2.0</version>
+            <version>0.2.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
