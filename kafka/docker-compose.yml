@@ -1,7 +1,7 @@
 services:
     
   zookeeper:
-    image: confluentinc/cp-zookeeper:latest
+    image: confluentinc/cp-zookeeper:7.6.0
     ports:
       - 22181:2181
     environment:
@@ -9,7 +9,7 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
 
   kafka:
-    image: confluentinc/cp-kafka:latest
+    image: confluentinc/cp-kafka:7.6.0
     depends_on:
       - zookeeper
     ports:
@@ -26,7 +26,7 @@ services:
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
       
   schema-registry:
-    image: confluentinc/cp-schema-registry:latest
+    image: confluentinc/cp-schema-registry:7.6.0
     depends_on:
       - zookeeper
       - kafka
