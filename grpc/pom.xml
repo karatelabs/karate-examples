@@ -9,9 +9,9 @@
  
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>17</java.version>
-        <maven.compiler.version>3.11.0</maven.compiler.version>
-        <maven.surefire.version>3.0.0</maven.surefire.version>
+        <java.version>21</java.version>
+        <maven.compiler.version>3.15.0</maven.compiler.version>
+        <maven.surefire.version>3.5.4</maven.surefire.version>
         <grpc.version>1.76.0</grpc.version>
         <protobuf.version>4.33.0</protobuf.version>
     </properties>
@@ -73,13 +73,13 @@
         <dependency>
             <groupId>io.karatelabs</groupId>
             <artifactId>karate-grpc</artifactId>
-            <version>0.3.0</version>
+            <version>0.4.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.6.2</version>
+            <version>5.11.4</version>
             <scope>test</scope>
         </dependency> 		
     </dependencies>
@@ -107,8 +107,7 @@
                 <version>${maven.compiler.version}</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <release>${java.version}</release>
                 </configuration>
             </plugin>
             <plugin>

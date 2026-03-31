@@ -1,7 +1,7 @@
 package karate;
 
-import com.intuit.karate.Results;
-import com.intuit.karate.Runner;
+import io.karatelabs.core.Runner;
+import io.karatelabs.core.SuiteResult;
 import io.grpc.Server;
 import io.karatelabs.examples.grpc.HelloServer;
 import org.junit.jupiter.api.AfterAll;
@@ -21,10 +21,10 @@ class HelloTest {
 
     @Test
     void testFeature() {
-        Results results = Runner.path("classpath:karate/hello.feature")
+        SuiteResult result = Runner.path("classpath:karate/hello.feature")
                 .systemProperty("grpc.port", server.getPort() + "")
                 .parallel(1);
-        assertEquals(0, results.getFailCount(), results.getErrorMessages());
+        assertEquals(0, result.getScenarioFailedCount(), result.getErrors().toString());
     }
 
     @AfterAll
