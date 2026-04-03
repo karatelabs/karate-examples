@@ -14,7 +14,6 @@
         </encoder>
     </appender>    
    
-    <logger name="com.intuit" level="DEBUG"/>
     <logger name="io.karatelabs" level="DEBUG"/>
    
     <root level="warn">

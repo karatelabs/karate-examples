@@ -9,17 +9,17 @@
  
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>17</java.version>
-        <maven.compiler.version>3.11.0</maven.compiler.version>
-        <maven.surefire.version>3.0.0</maven.surefire.version>
-        <junit5.version>5.6.2</junit5.version>
+        <java.version>21</java.version>
+        <maven.compiler.version>3.15.0</maven.compiler.version>
+        <maven.surefire.version>3.5.4</maven.surefire.version>
+        <junit5.version>5.11.4</junit5.version>
     </properties>    
 
     <dependencies>         
         <dependency>
             <groupId>io.karatelabs</groupId>
             <artifactId>karate-websocket</artifactId>
-            <version>0.1.1</version>
+            <version>0.2.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -46,8 +46,7 @@
                 <version>${maven.compiler.version}</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <release>${java.version}</release>
                 </configuration>
             </plugin>
             <plugin>

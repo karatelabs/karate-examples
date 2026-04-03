@@ -1,17 +1,17 @@
 package karate;
 
-import com.intuit.karate.Results;
-import com.intuit.karate.Runner;
+import io.karatelabs.core.Runner;
+import io.karatelabs.core.SuiteResult;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class EchoTest {    
-    
+class EchoTest {
+
     @Test
     void testFeature() {
-        Results results = Runner.path("classpath:karate/echo.feature").parallel(1);
-        assertEquals(0, results.getFailCount(), results.getErrorMessages());
-    }      
-    
+        SuiteResult result = Runner.path("classpath:karate/echo.feature").parallel(1);
+        assertEquals(0, result.getScenarioFailedCount(), result.getErrors().toString());
+    }
+
 }

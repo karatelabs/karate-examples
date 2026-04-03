@@ -1,6 +1,6 @@
 package karate;
 
-import com.intuit.karate.Json;
+import io.karatelabs.common.Json;
 import io.karatelabs.websocket.WebsocketAdapter;
 import io.karatelabs.websocket.WebsocketConsumer;
 
